@@ -1,0 +1,17 @@
+.footer {
+  background-color: var(--dark-blue);
+  text-align: center;
+
+  .footer-links {
+    padding: 1rem 0;
+  }
+
+  .footer--credit {
+    padding: 1rem 0;
+
+    span {
+      font-size: 1.4rem;
+      color: var(--light-color);
+    }
+  }
+}

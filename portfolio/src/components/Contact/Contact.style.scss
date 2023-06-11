@@ -1,0 +1,45 @@
+.contact {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  .contact--form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+    width: 100%;
+
+    h2 {
+      text-align: center;
+      font-size: 1.6rem;
+      color: var(--light-color);
+      margin-bottom: 1rem;
+    }
+
+    input,
+    textarea {
+      padding: 20px;
+      background-color: #e8e6e6;
+      border: none;
+      resize: none;
+      font-family: inherit;
+    }
+
+    button {
+      font-weight: bold;
+      padding: 20px;
+      color: #fff;
+      background-color: #da4ea2;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        color: #fff;
+        background-color: #000;
+      }
+    }
+  }
+}

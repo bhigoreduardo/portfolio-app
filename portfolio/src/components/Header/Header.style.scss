@@ -1,0 +1,88 @@
+@import "src/index.scss";
+
+.header {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding: 1rem 7%;
+  box-shadow: var(--box-shadow);
+  background-color: var(--dark-color);
+  z-index: 10;
+
+  .header--logo {
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: var(--light-color);
+    margin-right: auto;
+
+    span {
+      color: var(--red);
+    }
+  }
+
+  .header--navbar a {
+    font-size: 1.6rem;
+    color: var(--light-color);
+    padding: 0.5rem 2rem;
+    margin-right: 1rem;
+
+    &:hover {
+      background-color: var(--light-color);
+      color: var(--dark-color);
+    }
+  }
+
+  .header--icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    i {
+      @include icon();
+    }
+
+    .header--icons-menu {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    position: relative;
+
+    .header--navbar {
+      position: absolute;
+      top: 120%;
+      right: 2rem;
+      padding: 1rem;
+      width: 25rem;
+      background-color: var(--light-color);
+      box-shadow: var(--box-shadow);
+      transform: scale(0);
+      opacity: 0;
+
+      &.active {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      a {
+        display: block;
+        color: var(--dark-color);
+        margin-bottom: 1rem;
+        padding: 1rem;
+
+        &:hover {
+          background-color: var(--dark-color);
+          color: var(--light-color);
+        }
+      }
+    }
+
+    .header--icons .header--icons-menu {
+      display: inline-block;
+    }
+  }
+}

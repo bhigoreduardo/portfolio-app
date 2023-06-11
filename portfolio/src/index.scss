@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap");
+
+:root {
+  --dark-color: #2d3748;
+  --light-color: #c4c4c4;
+  --blue: #2c8cff;
+  --dark-blue: #3b3663;
+  --red: #da211e;
+  --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  transition: all 0.2s ease-out;
+}
+
+html {
+  font-family: "Nunito", sans-serif;
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  background-color: var(--dark-color);
+
+  &::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: var(--dark-color);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--light-color);
+  }
+}
+
+@media screen and (max-width: 922px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+/* HELPERS */
+@mixin icon() {
+  display: inline-block;
+  font-size: 1.6rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  text-align: center;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  cursor: pointer;
+
+  &:hover,
+  &.active {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+.container {
+  padding: 2rem 7%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+  grid-gap: 2rem;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+
+  h2 {
+    font-size: 3rem;
+    color: var(--light-color);
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.6rem;
+    color: var(--light-color);
+    line-height: 2;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  border: 0.1rem solid transparent;
+  color: var(--light-color);
+  background: none;
+  cursor: pointer;
+
+  &:hover,
+  &.active {
+    color: var(--red);
+  }
+
+  &.red {
+    background-color: var(--red);
+    border-color: var(--light-color);
+    color: #fff;
+
+    &:hover,
+    &.active {
+      color: var(--red);
+      border-color: var(--red);
+      background-color: #fff;
+    }
+  }
+
+  &.dark {
+    background-color: var(--dark-color);
+    border-color: var(--light-color);
+
+    &:hover,
+    &.active {
+      color: var(--dark-color);
+      background-color: var(--light-color);
+    }
+  }
+}
