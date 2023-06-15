@@ -15,6 +15,22 @@ import Products from "./pages/Products";
 import ProductsForm from "./pages/Products/Form";
 import Sales from "./pages/Sales";
 import SalesForm from "./pages/Sales/Form";
+import Payments from "./pages/Payments";
+import PaymentsForm from "./pages/Payments/Form";
+import Receipts from "./pages/Receipts";
+import ReceiptsForm from "./pages/Receipts/Form";
+import PaymentsMethods from "./pages/PaymentsMethods";
+import PaymentsMethodsForm from "./pages/PaymentsMethods/Form";
+
+// DEVELOPMENT
+import ReportsPayments from "./pages/ReportsPayments";
+import ReportsReceipts from "./pages/ReportsReceipts";
+import ReportsSales from "./pages/ReportsSales";
+
+import Users from "./pages/Users";
+import UsersForm from "./pages/Users/Form";
+import Profile from "./pages/Profile";
+import System from "./pages/System";
 
 const App = () => {
   return (
@@ -42,6 +58,25 @@ const App = () => {
         <Route path="/vendas" element={<Sales />} />
         <Route path="/vendas/cadastro" element={<SalesForm />} />
         <Route path="/vendas/1" element={<SalesForm />} />
+        <Route path="/contas-pagar" element={<Payments />} />
+        <Route path="/contas-pagar/cadastro" element={<PaymentsForm />} />
+        <Route path="/contas-pagar/1" element={<PaymentsForm />} />
+        <Route path="/contas-receber" element={<Receipts />} />
+        <Route path="/contas-receber/cadastro" element={<ReceiptsForm />} />
+        <Route path="/contas-receber/1" element={<ReceiptsForm />} />
+        <Route path="/formas-pagamento" element={<PaymentsMethods />} />
+        <Route path="/formas-pagamento/cadastro" element={<PaymentsMethodsForm />} />
+        <Route path="/formas-pagamento/1" element={<PaymentsMethodsForm />} />
+        {/* DEVELOPMENT */}
+        <Route path="/relatorios-contas-pagar" element={<ReportsPayments />} />
+        <Route path="/relatorios-contas-receber" element={<ReportsReceipts />} />
+        <Route path="/relatorios-vendas" element={<ReportsSales />} />
+
+        <Route path="/usuarios" element={<Users />} />
+        <Route path="/usuarios/cadastro" element={<UsersForm />} />
+        <Route path="/usuarios/1" element={<UsersForm />} />
+        <Route path="/perfil" element={<Profile />} />
+        <Route path="/configuracoes" element={<System />} />
       </Routes>
     </Router>
   );
