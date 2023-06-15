@@ -6,9 +6,9 @@ const Dashboard = () => {
       <div className="flex-none w-full max-w-full px-3">
         <div className="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
           <div className="flex items-center justify-between p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-            <h6 className="dark:text-white">Lista de clientes</h6>
-            <a href="/clientes/cadastro" title="Adicionar cliente" type="button" className="inline-block px-8 py-2 mb-4 font-bold leading-normal text-center text-white uppercase align-middle transition-all ease-in rounded-lg shadow-xs cursor-pointer bg-gradient-to-tl from-blue-500 to-violet-500 text-xs tracking-tight-rem bg-150 bg-x-25 hover:-translate-y-px active:opacity-85 hover:shadow-md">
-              <i className="fas fa-user-tie text-white-50"></i>&nbsp;Adicionar
+            <h6 className="dark:text-white">Lista de vendedores</h6>
+            <a href="/vendedores/cadastro" title="Adicionar cliente" type="button" className="inline-block px-8 py-2 mb-4 font-bold leading-normal text-center text-white uppercase align-middle transition-all ease-in rounded-lg shadow-xs cursor-pointer bg-gradient-to-tl from-blue-500 to-violet-500 text-xs tracking-tight-rem bg-150 bg-x-25 hover:-translate-y-px active:opacity-85 hover:shadow-md">
+              <i className="fas fa-user-friends text-white-50"></i>&nbsp;Adicionar
             </a>
           </div>
           <div className="flex-auto px-0 pt-0 pb-2">
