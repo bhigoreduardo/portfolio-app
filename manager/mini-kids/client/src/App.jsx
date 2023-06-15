@@ -1,4 +1,7 @@
+import { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import { ThemeContext } from "./contexts/ThemeContext";
 
 import Dashboard from "./pages/Dashboard";
 import Customers from "./pages/Customers";
@@ -33,52 +36,56 @@ import Profile from "./pages/Profile";
 import System from "./pages/System";
 
 const App = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/clientes" element={<Customers />} />
-        <Route path="/clientes/cadastro" element={<CustomersForm />} />
-        <Route path="/clientes/1" element={<CustomersForm />} />
-        <Route path="/fornecedores" element={<Supplies />} />
-        <Route path="/fornecedores/cadastro" element={<SuppliesForm />} />
-        <Route path="/fornecedores/1" element={<SuppliesForm />} />
-        <Route path="/vendedores" element={<Sallers />} />
-        <Route path="/vendedores/cadastro" element={<SallersForm />} />
-        <Route path="/vendedores/1" element={<SallersForm />} />
-        <Route path="/marcas" element={<Brands />} />
-        <Route path="/marcas/cadastro" element={<BrandsForm />} />
-        <Route path="/marcas/1" element={<BrandsForm />} />
-        <Route path="/categorias" element={<Categories />} />
-        <Route path="/categorias/cadastro" element={<CategoriesForm />} />
-        <Route path="/categorias/1" element={<CategoriesForm />} />
-        <Route path="/produtos" element={<Products />} />
-        <Route path="/produtos/cadastro" element={<ProductsForm />} />
-        <Route path="/produtos/1" element={<ProductsForm />} />
-        <Route path="/vendas" element={<Sales />} />
-        <Route path="/vendas/cadastro" element={<SalesForm />} />
-        <Route path="/vendas/1" element={<SalesForm />} />
-        <Route path="/contas-pagar" element={<Payments />} />
-        <Route path="/contas-pagar/cadastro" element={<PaymentsForm />} />
-        <Route path="/contas-pagar/1" element={<PaymentsForm />} />
-        <Route path="/contas-receber" element={<Receipts />} />
-        <Route path="/contas-receber/cadastro" element={<ReceiptsForm />} />
-        <Route path="/contas-receber/1" element={<ReceiptsForm />} />
-        <Route path="/formas-pagamento" element={<PaymentsMethods />} />
-        <Route path="/formas-pagamento/cadastro" element={<PaymentsMethodsForm />} />
-        <Route path="/formas-pagamento/1" element={<PaymentsMethodsForm />} />
-        {/* DEVELOPMENT */}
-        <Route path="/relatorios-contas-pagar" element={<ReportsPayments />} />
-        <Route path="/relatorios-contas-receber" element={<ReportsReceipts />} />
-        <Route path="/relatorios-vendas" element={<ReportsSales />} />
+  const { theme } = useContext(ThemeContext);
 
-        <Route path="/usuarios" element={<Users />} />
-        <Route path="/usuarios/cadastro" element={<UsersForm />} />
-        <Route path="/usuarios/1" element={<UsersForm />} />
-        <Route path="/perfil" element={<Profile />} />
-        <Route path="/configuracoes" element={<System />} />
-      </Routes>
-    </Router>
+  return (
+    <main className={`${theme === "light" ? "light" : "dark"}`}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/clientes" element={<Customers />} />
+          <Route path="/clientes/cadastro" element={<CustomersForm />} />
+          <Route path="/clientes/1" element={<CustomersForm />} />
+          <Route path="/fornecedores" element={<Supplies />} />
+          <Route path="/fornecedores/cadastro" element={<SuppliesForm />} />
+          <Route path="/fornecedores/1" element={<SuppliesForm />} />
+          <Route path="/vendedores" element={<Sallers />} />
+          <Route path="/vendedores/cadastro" element={<SallersForm />} />
+          <Route path="/vendedores/1" element={<SallersForm />} />
+          <Route path="/marcas" element={<Brands />} />
+          <Route path="/marcas/cadastro" element={<BrandsForm />} />
+          <Route path="/marcas/1" element={<BrandsForm />} />
+          <Route path="/categorias" element={<Categories />} />
+          <Route path="/categorias/cadastro" element={<CategoriesForm />} />
+          <Route path="/categorias/1" element={<CategoriesForm />} />
+          <Route path="/produtos" element={<Products />} />
+          <Route path="/produtos/cadastro" element={<ProductsForm />} />
+          <Route path="/produtos/1" element={<ProductsForm />} />
+          <Route path="/vendas" element={<Sales />} />
+          <Route path="/vendas/cadastro" element={<SalesForm />} />
+          <Route path="/vendas/1" element={<SalesForm />} />
+          <Route path="/contas-pagar" element={<Payments />} />
+          <Route path="/contas-pagar/cadastro" element={<PaymentsForm />} />
+          <Route path="/contas-pagar/1" element={<PaymentsForm />} />
+          <Route path="/contas-receber" element={<Receipts />} />
+          <Route path="/contas-receber/cadastro" element={<ReceiptsForm />} />
+          <Route path="/contas-receber/1" element={<ReceiptsForm />} />
+          <Route path="/formas-pagamento" element={<PaymentsMethods />} />
+          <Route path="/formas-pagamento/cadastro" element={<PaymentsMethodsForm />} />
+          <Route path="/formas-pagamento/1" element={<PaymentsMethodsForm />} />
+          {/* DEVELOPMENT */}
+          <Route path="/relatorios-contas-pagar" element={<ReportsPayments />} />
+          <Route path="/relatorios-contas-receber" element={<ReportsReceipts />} />
+          <Route path="/relatorios-vendas" element={<ReportsSales />} />
+
+          <Route path="/usuarios" element={<Users />} />
+          <Route path="/usuarios/cadastro" element={<UsersForm />} />
+          <Route path="/usuarios/1" element={<UsersForm />} />
+          <Route path="/perfil" element={<Profile />} />
+          <Route path="/configuracoes" element={<System />} />
+        </Routes>
+      </Router>
+    </main>
   );
 };
 
