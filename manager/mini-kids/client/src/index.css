@@ -3,3 +3,7 @@
 @tailwind utilities;
 
 textarea { resize: none; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { border-radius: 6px; }
+::-webkit-scrollbar-thumb { background-color: #aaa; }
