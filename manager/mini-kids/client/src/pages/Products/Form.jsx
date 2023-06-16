@@ -1,9 +1,7 @@
-import { brands, categories, colors, sizes } from "../../utils/data";
+import { brands, categories, colors, sizes, variates } from "../../utils/data";
 import Layout from "../../components/Layout";
 
 const Form = () => {
-  const removeColor = i => console.log(i);
-
   return (
     <Layout>
       <form className="flex flex-wrap -mx-3">
@@ -94,50 +92,7 @@ const Form = () => {
                     <input placeholder="Informe a idade" type="text" name="age" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
                   </div>
                 </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="color" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Cores</label>
-                    <div className="dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease w-full flex rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all flex-col gap-2 overflow-y-auto max-h-30">
-                      {colors?.length > 0 && (
-                        colors.map((item, i) => (
-                          <span key={i} className="cursor-pointer">{item}</span>
-                        ))
-                      )}
-                    </div>
-                    {colors?.length > 0 && (
-                      <div className="flex items-center gap-2 flex-wrap mt-2">
-                        {colors.map((item, i) => (
-                          <button key={i} title="Excluir" type="button" onClick={() => removeColor(i)} className="flex items-center h-[30px] gap-1 text-sm border border-slate-400 text-gray-700 dark:text-slate-100 py-6 px-4">
-                            <span>{item}</span>
-                            <i className="fas fa-user-times text-red-400"></i>
-                        </button>
-                        ))}
-                      </div>
-                    )}
-                    </div>
-                </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="color" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Tamanhos</label>
-                    <div className="dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease w-full flex rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all flex-col gap-2 overflow-y-auto max-h-30">
-                      {sizes?.length > 0 && (
-                        sizes.map((item, i) => (
-                          <span key={i} className="cursor-pointer">{item}</span>
-                        ))
-                      )}
-                    </div>
-                    {sizes?.length > 0 && (
-                      <div className="flex items-center gap-2 flex-wrap mt-2">
-                        {sizes.map((item, i) => (
-                          <button key={i} title="Excluir" type="button" onClick={() => removeColor(i)} className="flex items-center h-[30px] gap-1 text-sm border border-slate-400 text-gray-700 dark:text-slate-100 py-6 px-4">
-                            <span>{item}</span>
-                            <i className="fas fa-user-times text-red-400"></i>
-                        </button>
-                        ))}
-                      </div>
-                    )}
-                    </div>
-                </div>
+                
                 <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
                   <div className="mb-4">
                     <label htmlFor="weight" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Peso</label>
@@ -147,7 +102,7 @@ const Form = () => {
               </div>
               <hr className="h-px mx-0 my-4 bg-transparent border-0 opacity-25 bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent " />
 
-              <p className="leading-normal uppercase dark:text-white dark:opacity-60 text-sm"><i className="fas fa-funnel-dollar"></i>&nbsp;Informações de custo e estoque</p>
+              <p className="leading-normal uppercase dark:text-white dark:opacity-60 text-sm"><i className="fas fa-funnel-dollar"></i>&nbsp;Variações de custo e estoque</p>
               <div className="flex flex-wrap -mx-3">
                 <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
                   <div className="mb-4">
@@ -180,6 +135,148 @@ const Form = () => {
                   </div>
                 </div>
               </div>
+              <div className="flex flex-wrap -mx-3">
+                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
+                  <div className="mb-4">
+                    <label htmlFor="color" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Cor</label>
+                    {colors?.length > 0 && (
+                      <select name="color" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none">
+                        <option value="">Sem Cor</option>
+                        {colors.map((item, i) => (
+                          <option key={i} value={item}>{item}</option>
+                        ))}
+                      </select>
+                    )}
+                  </div>
+                </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
+                  <div className="mb-4">
+                    <label htmlFor="color" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Tamanho</label>
+                    {sizes?.length > 0 && (
+                      <select name="color" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none">
+                        <option value="">Sem Tamanho</option>
+                        {sizes.map((item, i) => (
+                          <option key={i} value={item}>{item}</option>
+                        ))}
+                      </select>
+                    )}
+                  </div>
+                </div>
+                {/* <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
+                  <div className="mb-4">
+                    <label htmlFor="color" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Cores</label>
+                    <div className="dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease w-full flex rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all flex-col gap-2 overflow-y-auto max-h-30">
+                      {colors?.length > 0 && (
+                        colors.map((item, i) => (
+                          <span key={i} className="cursor-pointer">{item}</span>
+                        ))
+                      )}
+                    </div>
+                    {colors?.length > 0 && (
+                      <div className="flex items-center gap-2 flex-wrap mt-2">
+                        {colors.map((item, i) => (
+                          <button key={i} title="Excluir" type="button" onClick={() => removeColor(i)} className="flex items-center h-[30px] gap-1 text-sm border border-slate-400 text-gray-700 dark:text-slate-100 py-6 px-4">
+                            <span>{item}</span>
+                            <i className="fas fa-user-times text-red-400"></i>
+                        </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div> */}
+                {/* <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
+                  <div className="mb-4">
+                    <label htmlFor="color" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Tamanhos</label>
+                    <div className="dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease w-full flex rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all flex-col gap-2 overflow-y-auto max-h-30">
+                      {sizes?.length > 0 && (
+                        sizes.map((item, i) => (
+                          <span key={i} className="cursor-pointer">{item}</span>
+                        ))
+                      )}
+                    </div>
+                    {sizes?.length > 0 && (
+                      <div className="flex items-center gap-2 flex-wrap mt-2">
+                        {sizes.map((item, i) => (
+                          <button key={i} title="Excluir" type="button" onClick={() => removeColor(i)} className="flex items-center h-[30px] gap-1 text-sm border border-slate-400 text-gray-700 dark:text-slate-100 py-6 px-4">
+                            <span>{item}</span>
+                            <i className="fas fa-user-times text-red-400"></i>
+                        </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div> */}
+              </div>
+              <div className="flex flex-wrap -mx-3">
+                <div className="w-full max-w-full px-3 shrink-0 md:flex-0">
+                  <div className="mb-4">
+                    <label htmlFor="color" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Variações</label>
+                    <div className="dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease w-full flex rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all flex-col gap-2 overflow-y-auto max-h-30">
+                      {variates?.length > 0 && (
+                        variates.map((item, i) => (
+                          <div key={i}>
+                            <table className="items-center w-full mb-0 align-top border-collapse dark:border-white/40 text-slate-500">
+                              <thead className="align-bottom">
+                                <tr>
+                                  <th className="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Especificações</th>
+                                  <th className="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Preço</th>
+                                  <th className="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Estoques</th>
+                                  <th className="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Vendas</th>
+                                  <th className="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Status</th>
+                                  <th className="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-collapse border-solid shadow-none dark:border-white/40 dark:text-white tracking-none whitespace-nowrap text-slate-400 opacity-70"></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                  <div className="flex px-2 py-1">
+                                    <div className="flex flex-col justify-center">
+                                      <h6 className="mb-0 text-sm leading-normal dark:text-white">{item.color}</h6>
+                                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">{item.size}</p>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                  <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">R${item.price} (Preço)</p>
+                                  <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">R${item.discount} (Desconto)</p>
+                                  <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">R${item.coast} (Custo)</p>
+                                </td>
+                                <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                  <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">{item.stock} unids</p>
+                                  <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">{item.minStock} unids</p>
+                                </td>
+                                <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                  <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">{item.orders} vendas</p>
+                                  <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">R${item.sales}</p>
+                                </td>
+                                <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                  <span className="bg-gradient-to-tl from-emerald-500 to-teal-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">{item.status ? "Ativo" : "Inativo"}</span>
+                                </td>
+                                <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                  <a title="Editar" href="/produtos/1" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 mr-2"><i className="fas fa-user-edit text-sky-400"></i></a>
+                                  <a title="Excluir" href="/" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80"><i className="fas fa-user-times text-red-400"></i></a>
+                                </td>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        ))
+                      )}
+                    </div>
+                    {/* {variates?.length > 0 && (
+                      <div className="flex items-center gap-2 flex-wrap mt-2">
+                        {variates.map((item, i) => (
+                          <button key={i} title="Excluir" type="button" onClick={() => removeVariate(i)} className="flex items-center h-[30px] gap-1 text-sm border border-slate-400 text-gray-700 dark:text-slate-100 py-6 px-4">
+                            <span>{i}</span>
+                            <i className="fas fa-user-times text-red-400"></i>
+                        </button>
+                        ))}
+                      </div>
+                    )} */}
+                  </div>
+                </div>
+              </div>
+              <button type="button" className="inline-block px-8 py-2 mb-4 font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-blue-500 border-0 rounded-lg shadow-md cursor-pointer text-xs tracking-tight-rem hover:shadow-xs hover:-translate-y-px active:opacity-85">Salvar variação</button>
               <hr className="h-px mx-0 my-4 bg-transparent border-0 opacity-25 bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent " />
 
               <p className="leading-normal uppercase dark:text-white dark:opacity-60 text-sm"><i className="fa fa-image"></i>&nbsp;Imagens do produto</p>

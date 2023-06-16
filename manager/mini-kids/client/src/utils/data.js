@@ -23,8 +23,6 @@ export const products = [
     weight: 200,
     status: true,
     obs: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae reprehenderit repellendus expedita esse cupiditate quos doloremque rerum, corrupti ab illum est nihil, voluptate ex dignissimos! Sit voluptatem delectus nam, molestiae, repellendus ab sint quo aliquam debitis amet natus doloremque laudantium? Repudiandae, consequuntur, officiis quidem quo deleniti, autem non laudantium sequi error molestiae ducimus accusamus facere velit consectetur vero dolore natus nihil temporibus aspernatur quia consequatur? Consequuntur voluptate deserunt repellat tenetur debitis molestiae doloribus dicta. In rem illum dolorem atque ratione voluptates asperiores maxime doloremque laudantium magni neque ad quae quos quidem, quaerat rerum ducimus blanditiis reiciendis",
-    orders: 45,
-    sales: 45000.00,
     createdAt: "2 Fevereiro 2020",
     thumbnail: "blazer-vermelho.webp",
     medias: ["blazer-vermelho.webp"],
@@ -49,8 +47,6 @@ export const products = [
     weight: 200,
     status: true,
     obs: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae reprehenderit repellendus expedita esse cupiditate quos doloremque rerum, corrupti ab illum est nihil, voluptate ex dignissimos! Sit voluptatem delectus nam, molestiae, repellendus ab sint quo aliquam debitis amet natus doloremque laudantium? Repudiandae, consequuntur, officiis quidem quo deleniti, autem non laudantium sequi error molestiae ducimus accusamus facere velit consectetur vero dolore natus nihil temporibus aspernatur quia consequatur? Consequuntur voluptate deserunt repellat tenetur debitis molestiae doloribus dicta. In rem illum dolorem atque ratione voluptates asperiores maxime doloremque laudantium magni neque ad quae quos quidem, quaerat rerum ducimus blanditiis reiciendis",
-    orders: 35,
-    sales: 5000.00,
     createdAt: "2 Fevereiro 2020",
     thumbnail: "blazer-azul.webp",
     medias: ["blazer-vermelho.webp"],
@@ -75,10 +71,23 @@ export const products = [
     weight: 200,
     status: true,
     obs: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae reprehenderit repellendus expedita esse cupiditate quos doloremque rerum, corrupti ab illum est nihil, voluptate ex dignissimos! Sit voluptatem delectus nam, molestiae, repellendus ab sint quo aliquam debitis amet natus doloremque laudantium? Repudiandae, consequuntur, officiis quidem quo deleniti, autem non laudantium sequi error molestiae ducimus accusamus facere velit consectetur vero dolore natus nihil temporibus aspernatur quia consequatur? Consequuntur voluptate deserunt repellat tenetur debitis molestiae doloribus dicta. In rem illum dolorem atque ratione voluptates asperiores maxime doloremque laudantium magni neque ad quae quos quidem, quaerat rerum ducimus blanditiis reiciendis",
-    orders: 15,
-    sales: 4500.00,
     createdAt: "2 Fevereiro 2020",
     thumbnail: "blusa-azul.webp",
     medias: ["blusa-azul.webp"],
   }
+];
+export const variates = [
+  {
+    productId: "BVFC879",
+    coast: 30.88,
+    price: 38.99,
+    discount: 35.79,
+    color: "Vermelho",
+    size: "M",
+    minStock: 20,
+    stock: 79,
+    status: true,
+    orders: 45,
+    sales: 45000.99,
+  },
 ];
