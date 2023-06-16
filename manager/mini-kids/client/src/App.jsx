@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { ThemeContext } from "./contexts/ThemeContext";
 
+import SignIn from "./pages/SignIn";
+import SignUp from './pages/SignUp';
+
 import Dashboard from "./pages/Dashboard";
 import Customers from "./pages/Customers";
 import CustomersForm from "./pages/Customers/Form";
@@ -42,7 +45,10 @@ const App = () => {
     <main className={`${theme === "light" ? "light" : "dark"}`}>
       <Router>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<SignIn />} />
+          <Route path="/cadastro" element={<SignUp />} />
+
+          <Route path="/painel" element={<Dashboard />} />
           <Route path="/clientes" element={<Customers />} />
           <Route path="/clientes/cadastro" element={<CustomersForm />} />
           <Route path="/clientes/1" element={<CustomersForm />} />
