@@ -1,6 +1,16 @@
 import Layout from "../../components/Layout";
+import { products, variates } from "../../utils/data";
 
 const Dashboard = () => {
+  const stockAmount = id => variates.filter((item) => item.productId === id).reduce((acc, cur) => acc + cur.stock, 0)
+  const stockCount = id => variates.filter((item) => item.productId === id).length;
+  const priceVariateAmount = id => variates.filter((item) => item.productId === id).reduce((acc, cur) => acc + cur.price, 0);
+  const priceVariateAvg = id => priceVariateAmount(id)/stockCount(id);
+  const currencyPrice = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  });
+
   return <Layout>
     <div className="flex flex-wrap -mx-3">
       <div className="flex-none w-full max-w-full px-3">
@@ -38,6 +48,7 @@ const Dashboard = () => {
                   <tr>
                     <th className="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Identificação</th>
                     <th className="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Gênero</th>
+                    <th className="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Classificação</th>
                     <th className="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Fornecedor</th>
                     <th className="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Estoques</th>
                     <th className="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Status</th>
@@ -45,198 +56,46 @@ const Dashboard = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <div className="flex px-2 py-1">
-                        <div>
-                          <img src="/img/shirt.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user1" />
-                        </div>
-                        <div className="flex flex-col justify-center">
-                          <h6 className="mb-0 text-sm leading-normal dark:text-white">SKU689AD</h6>
-                          <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">Camisa</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">Hering</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">Masculino</p>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">Jorjão do Anabol</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">(11) 9 87456-1234</p>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">89 unids</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">R$50.99</p>
-                    </td>
-                    <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <span className="bg-gradient-to-tl from-emerald-500 to-teal-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Ativo</span>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <a title="Editar" href="/produtos/1" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 mr-2"><i className="fas fa-user-edit text-sky-400"></i></a>
-                      <a title="Excluir" href="/" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80"><i className="fas fa-user-times text-red-400"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <div className="flex px-2 py-1">
-                        <div>
-                          <img src="/img/shirt.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user2" />
-                        </div>
-                        <div className="flex flex-col justify-center">
-                          <h6 className="mb-0 text-sm leading-normal dark:text-white">Alexa Liras</h6>
-                          <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">alexa@creative-tim.com</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">Hering</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">Masculino</p>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">Jorjão do Anabol</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">(11) 9 87456-1234</p>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">89 unids</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">R$50.99</p>
-                    </td>
-                    <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <span className="bg-gradient-to-tl from-emerald-500 to-teal-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Ativo</span>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <a title="Editar" href="/produtos/1" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 mr-2"><i className="fas fa-user-edit text-sky-400"></i></a>
-                      <a title="Excluir" href="/" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80"><i className="fas fa-user-times text-red-400"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <div className="flex px-2 py-1">
-                        <div>
-                          <img src="/img/shirt.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user3" />
-                        </div>
-                        <div className="flex flex-col justify-center">
-                          <h6 className="mb-0 text-sm leading-normal dark:text-white">Laurent Perrier</h6>
-                          <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">laurent@creative-tim.com</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">Hering</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">Masculino</p>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">Jorjão do Anabol</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">(11) 9 87456-1234</p>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">89 unids</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">R$50.99</p>
-                    </td>
-                    <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <span className="bg-gradient-to-tl from-emerald-500 to-teal-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Ativo</span>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <a title="Editar" href="/produtos/1" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 mr-2"><i className="fas fa-user-edit text-sky-400"></i></a>
-                      <a title="Excluir" href="/" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80"><i className="fas fa-user-times text-red-400"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <div className="flex px-2 py-1">
-                        <div>
-                          <img src="/img/shirt.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user4" />
-                        </div>
-                        <div className="flex flex-col justify-center">
-                          <h6 className="mb-0 text-sm leading-normal dark:text-white">Michael Levi</h6>
-                          <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">michael@creative-tim.com</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">Hering</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">Masculino</p>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">Jorjão do Anabol</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">(11) 9 87456-1234</p>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">89 unids</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">R$50.99</p>
-                    </td>
-                    <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <span className="bg-gradient-to-tl from-slate-600 to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Inativo</span>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <a title="Editar" href="/produtos/1" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 mr-2"><i className="fas fa-user-edit text-sky-400"></i></a>
-                      <a title="Excluir" href="/" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80"><i className="fas fa-user-times text-red-400"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <div className="flex px-2 py-1">
-                        <div>
-                          <img src="/img/shirt.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user5" />
-                        </div>
-                        <div className="flex flex-col justify-center">
-                          <h6 className="mb-0 text-sm leading-normal dark:text-white">Richard Gran</h6>
-                          <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">richard@creative-tim.com</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">Hering</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">Masculino</p>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">Jorjão do Anabol</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">(11) 9 87456-1234</p>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">89 unids</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">R$50.99</p>
-                    </td>
-                    <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <span className="bg-gradient-to-tl from-slate-600 to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Inativo</span>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <a title="Editar" href="/produtos/1" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 mr-2"><i className="fas fa-user-edit text-sky-400"></i></a>
-                      <a title="Excluir" href="/" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80"><i className="fas fa-user-times text-red-400"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 align-middle bg-transparent border-b-0 whitespace-nowrap shadow-transparent">
-                      <div className="flex px-2 py-1">
-                        <div>
-                          <img src="/img/shirt.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user6" />
-                        </div>
-                        <div className="flex flex-col justify-center">
-                          <h6 className="mb-0 text-sm leading-normal dark:text-white">SKU128KS</h6>
-                          <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">Camisa</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b-0 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">Hering</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">Masculino</p>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b-0 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">Jurandir</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">(11) 9 87456-1234</p>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b-0 whitespace-nowrap shadow-transparent">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">79 unids</p>
-                      <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">R$ 48.99</p>
-                    </td>
-                    <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b-0 whitespace-nowrap shadow-transparent">
-                      <span className="bg-gradient-to-tl from-slate-600 to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Inativo</span>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b-0 whitespace-nowrap shadow-transparent">
-                      <a title="Editar" href="/produtos/1" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 mr-2"><i className="fas fa-user-edit text-sky-400"></i></a>
-                      <a title="Excluir" href="/" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80"><i className="fas fa-user-times text-red-400"></i></a>
-                    </td>
-                  </tr>
+                  {products?.length > 0 && (
+                    products.map((item, i) => (
+                      <tr key={i}>
+                        <td className={`${i === products.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
+                          <div className="flex px-2 py-1">
+                            <div>
+                              <img src={item.thumbnail} className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user1" />
+                            </div>
+                            <div className="flex flex-col justify-center">
+                              <h6 className="mb-0 text-sm leading-normal dark:text-white">{item.sku}</h6>
+                              <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">{item.title}</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td className={`${i === products.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
+                          <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">{item.brand}</p>
+                          <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">{item.category}</p>
+                        </td>
+                        <td className={`${i === products.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
+                          <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">{item.age} anos</p>
+                          <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">{item.weight / 1000} (kg)</p>
+                        </td>
+                        <td className={`${i === products.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
+                          <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">{item.supply?.name}</p>
+                          <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">{item.supply?.mobile}</p>
+                        </td>
+                        <td className={`${i === products.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
+                          <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">{stockAmount(item.id)} unids</p>
+                          <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">{currencyPrice.format(priceVariateAvg(item.id))}</p>
+                        </td>
+                        <td className={`${i === products.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
+                          <span className="bg-gradient-to-tl from-emerald-500 to-teal-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">{item.status ? "Ativo" : "Inativo"}</span>
+                        </td>
+                        <td className={`${i === products.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
+                          <a title="Editar" href={`/produtos/${item.id}`} className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 mr-2"><i className="fas fa-user-edit text-sky-400"></i></a>
+                          <a title="Excluir" href="/" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80"><i className="fas fa-user-times text-red-400"></i></a>
+                        </td>
+                      </tr>
+                    ))
+                  )}
                 </tbody>
               </table>
 
