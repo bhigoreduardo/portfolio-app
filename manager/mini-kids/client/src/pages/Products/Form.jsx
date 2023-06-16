@@ -1,234 +1,113 @@
+import { useState } from "react";
+
 import { brands, categories, colors, sizes, variates } from "../../utils/data";
 import Layout from "../../components/Layout";
+import TextField from "../../components/Inputs/TextField";
+import AreaField from "../../components/Inputs/AreaField";
+import SelectField from "../../components/Inputs/SelectField";
+import FormTitle from "../../components/Navigation/FormTitle";
 
 const Form = () => {
+  const [thumbnailFile, setThumbnailFile] = useState("");
+  const [mediasFile, setMediasFile] = useState([]);
+
+  const removeImage = id => setMediasFile(
+    (prevState) => Array.from(prevState).filter((_, i) =>  i !== id)
+  );
+
   return (
     <Layout>
       <form className="flex flex-wrap -mx-3">
         <div className="w-full max-w-full px-3 shrink-0 md:flex-0">
           <div className="relative flex flex-col min-w-0 break-words bg-white border-0 shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
-            <div className="border-black/12.5 rounded-t-2xl border-b-0 border-solid p-6 pb-0">
-              <div className="flex items-center justify-end gap-4">
-                <a href="/clientes" className="inline-block px-8 py-2 mb-4 font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-emerald-600 border-0 rounded-lg shadow-md cursor-pointer text-xs tracking-tight-rem hover:shadow-xs hover:-translate-y-px active:opacity-85">Voltar</a>
-                <button type="button" className="inline-block px-8 py-2 mb-4 font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-blue-500 border-0 rounded-lg shadow-md cursor-pointer text-xs tracking-tight-rem hover:shadow-xs hover:-translate-y-px active:opacity-85">Salvar</button>
-              </div>
-            </div>
+            <FormTitle goBack="/clientes" />
+
             <div className="flex-auto p-6">
               <p className="leading-normal uppercase dark:text-white dark:opacity-60 text-sm"><i className="fas fa-box"></i>&nbsp;Informações do produto</p>
-              <div className="flex flex-wrap -mx-3">
-                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="sku" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Código/SKU</label>
-                    <input placeholder="Informe o código/SKU" type="text" name="sku" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+              <div className="flex flex-wrap py-3">
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <TextField id="sku" label="Código/SKU" icon="fa fa-code" title="Código/SKU" name="sku" placeholder="Informe o código/SKU" onChange={(e) => console.log(e.target.value)} />
                 </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="barCode" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Código de barras</label>
-                    <input placeholder="Informe o código de barras" type="text" name="barCode" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <TextField id="barCode" label="Código de barras" icon="fa fa-barcode" title="Código de barras" name="barCode" placeholder="Informe o código de barras" />
                 </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="ncm" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">NCM</label>
-                    <input placeholder="Informe o NCM" type="text" name="ncm" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <TextField id="ncm" label="NCM" icon="fa fa-file" title="NCM" name="ncm" placeholder="Informe o NCM" />
                 </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="name" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Nome</label>
-                    <input placeholder="Informe o nome" type="text" name="name" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <TextField id="name" label="Nome" icon="fas fa-archive" title="Nome" name="ncm" placeholder="Informe o nome" />
+                </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <SelectField id="supply" label="Fornecedor" icon="far fa-address-card" name="supply" placeholder="Sem fornecedor"  />
+                </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <SelectField id="category" label="Categoria" icon="	fas fa-transgender-alt" name="category" placeholder="Sem categoria"  />
+                </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <SelectField id="brand" label="Marca" icon="fas fa-asterisk" name="brand" placeholder="Sem marca"  />
+                </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <TextField id="age" label="Idade" icon="	fas fa-baby" title="Nome" name="age" placeholder="Informe a idade" />
+                </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <TextField id="weight" label="Peso (gramas)" icon="fas fa-weight" title="Peso" name="weight" placeholder="Informe o peso" />
                 </div>
                 <div className="w-full max-w-full px-3 shrink-0 md:w-full md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="description" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Descrição</label>
-                    <textarea placeholder="Informe a descrição" name="description" id="description" cols="30" rows="10" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none"></textarea>
-                  </div>
-                </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="supply" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Fornecedor</label>
-                    <select  name="supply" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none">
-                      <option value="masculino">Jorjão do Anabol</option>
-                      <option value="feminino">Jurandir</option>
-                    </select>
-                  </div>
+                  <AreaField id="description" label="Descrição" icon="fas fa-align-center" title="Descrição" name="description" placeholder="Informe a descrição" />
                 </div>
               </div>
               <hr className="h-px mx-0 my-4 bg-transparent border-0 opacity-25 bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent " />
               
-              <p className="leading-normal uppercase dark:text-white dark:opacity-60 text-sm"><i className="fas fa-box"></i>&nbsp;Especificações do produto</p>
-              <div className="flex flex-wrap -mx-3">
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="category" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Categoria</label>
-                    {categories?.length > 0 && (
-                      <select name="category" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none">
-                        <option value="">Sem categoria</option>
-                        {categories.map((item, i) => (
-                          <option key={i} value={item}>{item}</option>
-                        ))}
-                      </select>
-                    )}
-                  </div>
-                </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="brand" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Marca</label>
-                    {brands?.length > 0 && (
-                      <select name="brand" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none">
-                        <option value="">Sem marca</option>
-                        {brands.map((item, i) => (
-                          <option key={i} value={item}>{item}</option>
-                        ))}
-                      </select>
-                    )}
-                  </div>
-                </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="age" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Idade</label>
-                    <input placeholder="Informe a idade" type="text" name="age" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
-                </div>
-                
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="weight" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Peso</label>
-                    <input placeholder="Informe o peso" type="text" name="weight" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
-                </div>
-              </div>
-              <hr className="h-px mx-0 my-4 bg-transparent border-0 opacity-25 bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent " />
-
               <p className="leading-normal uppercase dark:text-white dark:opacity-60 text-sm"><i className="fas fa-funnel-dollar"></i>&nbsp;Variações de custo e estoque</p>
-              <div className="flex flex-wrap -mx-3">
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="coast" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Preço custo</label>
-                    <input placeholder="Informe a preço de custo" type="text" name="coast" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+              <div className="flex flex-wrap py-3">
+                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0 mb-3">
+                  <TextField id="coast" label="Custo" icon="fas fa-dollar-sign" title="Custo" name="coast" placeholder="Informe o preço de custo" />
+                </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0 mb-3">
+                  <TextField id="sale" label="Venda" icon="fas fa-donate" title="Venda" name="sale" placeholder="Informe o preço de venda" />
+                </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0 mb-3">
+                  <TextField id="discount" label="Desconto" icon="fas fa-tags" title="Desconto" name="discount" placeholder="Informe o desconto" />
+                </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0 mb-3">
+                  <TextField id="stockMin" label="Estoque mínimo" icon="fas fa-dolly" title="Estoque mínimo" name="stockMin" placeholder="Informe o estoque mínimo" />
+                </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0 mb-3">
+                  <TextField id="stock" label="Estoque" icon="fas fa-dolly-flatbed" title="Estoque" name="stock" placeholder="Informe o estoque" />
+                </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0 mb-3">
+                  <SelectField id="color" label="Cor" icon="fas fa-coins" name="color" placeholder="Sem cor"  />
                 </div>
                 <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="sale" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Preço venda</label>
-                    <input placeholder="Informe o preço de venda" type="text" name="sale" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
-                </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="discount" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Preço promocional</label>
-                    <input placeholder="Informe o preço promocional de venda" type="text" name="discount" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
-                </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="stockMin" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Estoque mínimo</label>
-                    <input placeholder="Informe o estoque mínimo" type="text" name="stockMin" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
-                </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="stock" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Estoque</label>
-                    <input placeholder="Informe o estoque" type="text" name="stock" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+                  <SelectField id="size" label="Tamanho" icon="fas fa-compress" name="size" placeholder="Sem tamanho"  />
                 </div>
               </div>
-              <div className="flex flex-wrap -mx-3">
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="color" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Cor</label>
-                    {colors?.length > 0 && (
-                      <select name="color" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none">
-                        <option value="">Sem Cor</option>
-                        {colors.map((item, i) => (
-                          <option key={i} value={item}>{item}</option>
-                        ))}
-                      </select>
-                    )}
-                  </div>
-                </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="color" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Tamanho</label>
-                    {sizes?.length > 0 && (
-                      <select name="color" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none">
-                        <option value="">Sem Tamanho</option>
-                        {sizes.map((item, i) => (
-                          <option key={i} value={item}>{item}</option>
-                        ))}
-                      </select>
-                    )}
-                  </div>
-                </div>
-                {/* <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="color" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Cores</label>
-                    <div className="dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease w-full flex rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all flex-col gap-2 overflow-y-auto max-h-30">
-                      {colors?.length > 0 && (
-                        colors.map((item, i) => (
-                          <span key={i} className="cursor-pointer">{item}</span>
-                        ))
-                      )}
-                    </div>
-                    {colors?.length > 0 && (
-                      <div className="flex items-center gap-2 flex-wrap mt-2">
-                        {colors.map((item, i) => (
-                          <button key={i} title="Excluir" type="button" onClick={() => removeColor(i)} className="flex items-center h-[30px] gap-1 text-sm border border-slate-400 text-gray-700 dark:text-slate-100 py-6 px-4">
-                            <span>{item}</span>
-                            <i className="fas fa-user-times text-red-400"></i>
-                        </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div> */}
-                {/* <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="color" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Tamanhos</label>
-                    <div className="dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease w-full flex rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all flex-col gap-2 overflow-y-auto max-h-30">
-                      {sizes?.length > 0 && (
-                        sizes.map((item, i) => (
-                          <span key={i} className="cursor-pointer">{item}</span>
-                        ))
-                      )}
-                    </div>
-                    {sizes?.length > 0 && (
-                      <div className="flex items-center gap-2 flex-wrap mt-2">
-                        {sizes.map((item, i) => (
-                          <button key={i} title="Excluir" type="button" onClick={() => removeColor(i)} className="flex items-center h-[30px] gap-1 text-sm border border-slate-400 text-gray-700 dark:text-slate-100 py-6 px-4">
-                            <span>{item}</span>
-                            <i className="fas fa-user-times text-red-400"></i>
-                        </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div> */}
+              <div className="flex flex-wrap py-3 w-full max-w-full px-3 md:w-4/12">
+                <button type="button" className="inline-block px-8 py-2 mb-4 font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-blue-500 border-0 rounded-lg shadow-md cursor-pointer text-xs tracking-tight-rem hover:shadow-xs hover:-translate-y-px active:opacity-85">Salvar variação</button>
               </div>
-              <div className="flex flex-wrap -mx-3">
+
+              <div className="flex flex-wrap py-3">
                 <div className="w-full max-w-full px-3 shrink-0 md:flex-0">
                   <div className="mb-4">
                     <label htmlFor="color" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Variações</label>
-                    <div className="dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease w-full flex rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all flex-col gap-2 overflow-y-auto max-h-30">
-                      {variates?.length > 0 && (
-                        variates.map((item, i) => (
-                          <div key={i}>
-                            <table className="items-center w-full mb-0 align-top border-collapse dark:border-white/40 text-slate-500">
-                              <thead className="align-bottom">
-                                <tr>
-                                  <th className="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Especificações</th>
-                                  <th className="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Preço</th>
-                                  <th className="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Estoques</th>
-                                  <th className="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Vendas</th>
-                                  <th className="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Status</th>
-                                  <th className="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-collapse border-solid shadow-none dark:border-white/40 dark:text-white tracking-none whitespace-nowrap text-slate-400 opacity-70"></th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                              <tr>
-                                <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                    <div className="dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease w-full flex rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all flex-col gap-2 overflow-y-auto max-h-100">
+                      <div>
+                      <table className="items-center w-full mb-0 align-top border-collapse dark:border-white/40 text-slate-500">
+                        <thead className="align-bottom">
+                          <tr>
+                            <th className="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Especificações</th>
+                            <th className="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Preço</th>
+                            <th className="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Estoques</th>
+                            <th className="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Vendas</th>
+                            <th className="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Status</th>
+                            <th className="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-collapse border-solid shadow-none dark:border-white/40 dark:text-white tracking-none whitespace-nowrap text-slate-400 opacity-70"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {variates?.length > 0 && (
+                            variates.map((item, i) => (
+                              <tr key={i}>
+                                <td className={`${i === variates.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
                                   <div className="flex px-2 py-1">
                                     <div className="flex flex-col justify-center">
                                       <h6 className="mb-0 text-sm leading-normal dark:text-white">{item.color}</h6>
@@ -236,105 +115,88 @@ const Form = () => {
                                     </div>
                                   </div>
                                 </td>
-                                <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                <td className={`${i === variates.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
                                   <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">R${item.price} (Preço)</p>
                                   <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">R${item.discount} (Desconto)</p>
                                   <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">R${item.coast} (Custo)</p>
                                 </td>
-                                <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                <td className={`${i === variates.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
                                   <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">{item.stock} unids</p>
                                   <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">{item.minStock} unids</p>
                                 </td>
-                                <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                <td className={`${i === variates.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
                                   <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">{item.orders} vendas</p>
                                   <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">R${item.sales}</p>
                                 </td>
-                                <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                <td className={`${i === variates.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
                                   <span className="bg-gradient-to-tl from-emerald-500 to-teal-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">{item.status ? "Ativo" : "Inativo"}</span>
                                 </td>
-                                <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                <td className={`${i === variates.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
                                   <a title="Editar" href="/produtos/1" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 mr-2"><i className="fas fa-user-edit text-sky-400"></i></a>
                                   <a title="Excluir" href="/" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80"><i className="fas fa-user-times text-red-400"></i></a>
                                 </td>
                               </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        ))
-                      )}
-                    </div>
-                    {/* {variates?.length > 0 && (
-                      <div className="flex items-center gap-2 flex-wrap mt-2">
-                        {variates.map((item, i) => (
-                          <button key={i} title="Excluir" type="button" onClick={() => removeVariate(i)} className="flex items-center h-[30px] gap-1 text-sm border border-slate-400 text-gray-700 dark:text-slate-100 py-6 px-4">
-                            <span>{i}</span>
-                            <i className="fas fa-user-times text-red-400"></i>
-                        </button>
-                        ))}
+                            )))}
+                          </tbody>
+                        </table>
                       </div>
-                    )} */}
+                    </div>
                   </div>
                 </div>
               </div>
-              <button type="button" className="inline-block px-8 py-2 mb-4 font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-blue-500 border-0 rounded-lg shadow-md cursor-pointer text-xs tracking-tight-rem hover:shadow-xs hover:-translate-y-px active:opacity-85">Salvar variação</button>
               <hr className="h-px mx-0 my-4 bg-transparent border-0 opacity-25 bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent " />
 
               <p className="leading-normal uppercase dark:text-white dark:opacity-60 text-sm"><i className="fa fa-image"></i>&nbsp;Imagens do produto</p>
-              <div className="flex flex-wrap -mx-3 gap-4">
+              <div className="flex flex-wrap py-3">
                 <div className="w-full max-w-full px-3 shrink-0 md:flex-0">
-                  <div>
-                    <label htmlFor="thumbnail" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Capa</label>
-                    <div className="flex items-center gap-2">
-                      <label className="w-24 h-24 dark:bg-slate-850 dark:text-white border border-gray-300 bg-white text-slate-700 flex items-center justify-center gap-1 rounded-lg cursor-pointer text-sm font-semibold">
-                        <i className="fa fa-image"></i> Capa
-                        <input type="file" className="hidden"/>
-                      </label>
-                      <div className="w-24 h-24 bg-gray-300 flex items-center justify-center rounded-lg overflow-hidden">
-                        <img src="/img/products/feminino/blazer-azul.webp" className="object-cover"/>
-                      </div>
+                  <label htmlFor="thumbnail" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Capa</label>
+                  <div className="flex items-center gap-2">
+                    <label className="w-24 h-24 dark:bg-slate-850 dark:text-white border border-gray-300 bg-white text-slate-700 flex items-center justify-center gap-1 rounded-lg cursor-pointer text-sm font-semibold">
+                      <i className="fa fa-image"></i>&nbsp;Capa
+                      <input type="file" onChange={(e) => setThumbnailFile(e.target.files[0])} className="hidden" />
+                    </label>
+                    <div className="relative w-24 h-24 bg-gray-300 flex items-center justify-center rounded-lg overflow-hidden">
+                      {!thumbnailFile ? "Sem capa" : (
+                        <>
+                          <i onClick={() => setThumbnailFile("")} className="absolute top-0 right-0 fa fa-times text-white bg-red-500 text-xs py-1 px-2 rounded-lg cursor-pointer"></i>
+                          <img src={window.URL.createObjectURL(thumbnailFile)} className="object-cover"/>
+                        </>
+                      )}
                     </div>
                   </div>
-                  <div>
-                    <label htmlFor="thumbnail" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Galeria</label>
-                    <div className="flex items-center flex-wrap gap-2">
-                      <label className="w-24 h-24 dark:bg-slate-850 dark:text-white border border-gray-300 bg-white text-slate-700 flex items-center justify-center gap-1 rounded-lg cursor-pointer text-sm font-semibold">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
-                        </svg> Galeria
-                        <input type="file" multiple className="hidden"/>
-                      </label>
+                </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:flex-0">
+                  <label htmlFor="thumbnail" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Galeria</label>
+                  <div className="flex items-center flex-wrap gap-2">
+                    <label className="w-24 h-24 dark:bg-slate-850 dark:text-white border border-gray-300 bg-white text-slate-700 flex items-center justify-center gap-1 rounded-lg cursor-pointer text-sm font-semibold">
+                      <i className="fa fa-upload"></i>&nbsp;Galeria
+                      <input type="file" multiple onChange={(e) => setMediasFile(e.target.files)} className="hidden" />
+                    </label>
+                    {!mediasFile?.length > 0 ? (
                       <div className="w-24 h-24 bg-gray-300 flex items-center justify-center rounded-lg overflow-hidden">
-                        <img src="/img/products/feminino/blazer-azul.webp" className="object-cover"/>
+                        Sem Galeria
                       </div>
-                      <div className="w-24 h-24 bg-gray-300 flex items-center justify-center rounded-lg overflow-hidden">
-                        <img src="/img/products/feminino/blazer-azul.webp" className="object-cover"/>
+                    ) : (
+                      Array.from(mediasFile).map((item, i) => (
+                      <div key={i} className="relative w-24 h-24 bg-gray-300 flex items-center justify-center rounded-lg overflow-hidden">
+                        <i onClick={() => removeImage(i)} className="absolute top-0 right-0 fa fa-times text-white bg-red-500 text-xs py-1 px-2 rounded-lg cursor-pointer"></i>
+                        <img src={window.URL.createObjectURL(item)} className="object-cover"/>
                       </div>
-                      <div className="w-24 h-24 bg-gray-300 flex items-center justify-center rounded-lg overflow-hidden">
-                        <img src="/img/products/feminino/blazer-azul.webp" className="object-cover"/>
-                      </div>
-                    </div>
+                      ))
+                    )}
                   </div>
                 </div>
               </div>
               <hr className="h-px mx-0 my-4 bg-transparent border-0 opacity-25 bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent " />
 
               <p className="leading-normal uppercase dark:text-white dark:opacity-60 text-sm"><i className="fas fa-tools"></i>&nbsp;Alterações</p>
-              <div className="flex flex-wrap -mx-3">
-                <div className="w-full max-w-full px-3 shrink-0 md:w-full md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="status" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Ativo</label>
-                    <select  name="status" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none">
-                      <option value={1}>Ativo</option>
-                      <option value={2}>Inativo</option>
-                    </select>
-                  </div>
+              <div className="flex flex-wrap py-3">
+                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0 mb-3">
+                  <SelectField id="status" label="Status" icon="fas fa-globe" name="status" placeholder="Sem status"  />
                 </div>
 
                 <div className="w-full max-w-full px-3 shrink-0 md:w-full md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="obs" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Observações</label>
-                    <textarea placeholder="Informe a observação" name="obs" id="obs" cols="30" rows="10" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none"></textarea>
-                  </div>
+                  <AreaField id="obs" label="Observação" icon="fas fa-align-center" title="Observação" name="obs" placeholder="Informe a observação" />
                 </div>
               </div>
             </div>
