@@ -204,8 +204,76 @@ const Dashboard = () => {
       </div>
 
       <div className="w-full max-w-full px-3 lg:w-5/12 lg:flex-none">
+        <div className="relative flex flex-col h-full min-w-0 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+          <div className="p-4 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+            <div className="flex flex-wrap -mx-3">
+              <div className="flex items-center flex-none w-1/2 max-w-full px-3">
+                <h6 className="mb-0 dark:text-white">Últimas vendas</h6>
+              </div>
+              <div className="flex-none w-1/2 max-w-full px-3 text-right">
+                <button className="inline-block px-8 py-2 mb-0 text-xs font-bold leading-normal text-center text-blue-500 align-middle transition-all ease-in bg-transparent border border-blue-500 border-solid rounded-lg shadow-none cursor-pointer bg-150 active:opacity-85 hover:-translate-y-px tracking-tight-rem bg-x-25 hover:opacity-75">Vê todas</button>
+              </div>
+            </div>
+          </div>
+          <div className="flex-auto p-4 pb-0">
+            <ul className="flex flex-col pl-0 mb-0 rounded-lg">
+              <li className="relative flex justify-between px-4 py-2 pl-0 mb-2 border-0 rounded-t-inherit text-inherit rounded-xl">
+                <div className="flex flex-col">
+                  <h6 className="mb-1 text-sm font-semibold leading-normal dark:text-white text-slate-700">1 Março 2020</h6>
+                  <span className="text-xs leading-tight dark:text-white dark:opacity-80">#MS-415646</span>
+                </div>
+                <div className="flex items-center text-sm leading-normal dark:text-white/80">
+                  R$180
+                  <button className="dark:text-white inline-block px-0 py-2.5 mb-0 ml-6 font-bold leading-normal text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-in bg-150 text-sm active:opacity-85 hover:-translate-y-px tracking-tight-rem bg-x-25 text-slate-700"><i className="mr-1 text-lg leading-none fas fa-file-pdf"></i> PDF</button>
+                </div>
+              </li>
+              <li className="relative flex justify-between px-4 py-2 pl-0 mb-2 border-0 rounded-xl text-inherit">
+                <div className="flex flex-col">
+                  <h6 className="mb-1 text-sm font-semibold leading-normal dark:text-white text-slate-700">10 Fevereiro 2021</h6>
+                  <span className="text-xs leading-tight dark:text-white dark:opacity-80">#RV-126749</span>
+                </div>
+                <div className="flex items-center text-sm leading-normal dark:text-white/80">
+                  R$250
+                  <button className="dark:text-white inline-block px-0 py-2.5 mb-0 ml-6 font-bold leading-normal text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-in bg-150 text-sm active:opacity-85 hover:-translate-y-px tracking-tight-rem bg-x-25 text-slate-700"><i className="mr-1 text-lg leading-none fas fa-file-pdf"></i> PDF</button>
+                </div>
+              </li>
+              <li className="relative flex justify-between px-4 py-2 pl-0 mb-2 border-0 rounded-xl text-inherit">
+                <div className="flex flex-col">
+                  <h6 className="mb-1 text-sm font-semibold leading-normal dark:text-white text-slate-700">05 Abril 2020</h6>
+                  <span className="text-xs leading-tight dark:text-white dark:opacity-80">#FB-212562</span>
+                </div>
+                <div className="flex items-center text-sm leading-normal dark:text-white/80">
+                  R$560
+                  <button className="dark:text-white inline-block px-0 py-2.5 mb-0 ml-6 font-bold leading-normal text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-in bg-150 text-sm active:opacity-85 hover:-translate-y-px tracking-tight-rem bg-x-25 text-slate-700"><i className="mr-1 text-lg leading-none fas fa-file-pdf"></i> PDF</button>
+                </div>
+              </li>
+              <li className="relative flex justify-between px-4 py-2 pl-0 mb-2 border-0 rounded-xl text-inherit">
+                <div className="flex flex-col">
+                  <h6 className="mb-1 text-sm font-semibold leading-normal dark:text-white text-slate-700">25 Junho 2019</h6>
+                  <span className="text-xs leading-tight dark:text-white dark:opacity-80">#QW-103578</span>
+                </div>
+                <div className="flex items-center text-sm leading-normal dark:text-white/80">
+                  R$120
+                  <button className="dark:text-white inline-block px-0 py-2.5 mb-0 ml-6 font-bold leading-normal text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-in bg-150 text-sm active:opacity-85 hover:-translate-y-px tracking-tight-rem bg-x-25 text-slate-700"><i className="mr-1 text-lg leading-none fas fa-file-pdf"></i> PDF</button>
+                </div>
+              </li>
+              <li className="relative flex justify-between px-4 py-2 pl-0 border-0 rounded-b-inherit rounded-xl text-inherit">
+                <div className="flex flex-col">
+                  <h6 className="mb-1 text-sm font-semibold leading-normal dark:text-white text-slate-700">1 Março 2019</h6>
+                  <span className="text-xs leading-tight dark:text-white dark:opacity-80">#AR-803481</span>
+                </div>
+                <div className="flex items-center text-sm leading-normal dark:text-white/80">
+                  R$300
+                  <button className="dark:text-white inline-block px-0 py-2.5 mb-0 ml-6 font-bold leading-normal text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-in bg-150 text-sm active:opacity-85 hover:-translate-y-px tracking-tight-rem bg-x-25 text-slate-700"><i className="mr-1 text-lg leading-none fas fa-file-pdf"></i> PDF</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {/* <div className="w-full max-w-full px-3 lg:w-5/12 lg:flex-none">
         <div className="relative w-full h-full overflow-hidden rounded-2xl">
-          {/* <!-- slide 1 --> */}
+          <!-- slide 1 -->
           <div className="absolute w-full h-full transition-all duration-500">
             <img className="object-cover h-full" src="/img/carousel-1.jpg" alt="carousel image" />
             <div className="block text-start ml-12 left-0 bottom-0 absolute right-[15%] pt-5 pb-5 text-white">
@@ -217,7 +285,7 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* <!-- slide 2 --> */}
+          <!-- slide 2 -->
           <div className="absolute w-full h-full transition-all duration-500">
             <img className="object-cover h-full" src="/img/carousel-2.jpg" alt="carousel image" />
             <div className="block text-start ml-12 left-0 bottom-0 absolute right-[15%] pt-5 pb-5 text-white">
@@ -229,7 +297,7 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* <!-- slide 3 --> */}
+          <!-- slide 3 -->
           <div className="absolute w-full h-full transition-all duration-500">
             <img className="object-cover h-full" src="/img/carousel-3.jpg" alt="carousel image" />
             <div className="block text-start ml-12 left-0 bottom-0 absolute right-[15%] pt-5 pb-5 text-white">
@@ -241,11 +309,11 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* <!-- Control buttons --> */}
+          <!-- Control buttons -->
           <button className="absolute z-10 w-10 h-10 p-2 text-lg text-white border-none opacity-50 cursor-pointer hover:opacity-100 far fa-chevron-right active:scale-110 top-6 right-4"></button>
           <button className="absolute z-10 w-10 h-10 p-2 text-lg text-white border-none opacity-50 cursor-pointer hover:opacity-100 far fa-chevron-left active:scale-110 top-6 right-16"></button>
         </div>
-      </div>
+      </div> */}
     </div>
 
     <div className="flex flex-wrap mt-6 -mx-3">
@@ -253,7 +321,7 @@ const Dashboard = () => {
         <div className="relative flex flex-col min-w-0 break-words bg-white border-0 border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl dark:bg-gray-950 border-black-125 rounded-2xl bg-clip-border">
           <div className="p-4 pb-0 mb-0 rounded-t-4">
             <div className="flex justify-between">
-              <h6 className="mb-2 dark:text-white">Últimas vendas</h6>
+              <h6 className="mb-2 dark:text-white">Produtos mais novos</h6>
             </div>
           </div>
           <div className="overflow-x-auto">
@@ -279,14 +347,14 @@ const Dashboard = () => {
                   </td>
                   <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40">
                     <div className="text-center">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Total:</p>
+                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Valor:</p>
                       <h6 className="mb-0 text-sm leading-normal dark:text-white">R$230,90</h6>
                     </div>
                   </td>
                   <td className="p-2 text-sm leading-normal align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40">
                     <div className="flex-1 text-center">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Estoque:</p>
-                      <h6 className="mb-0 text-sm leading-normal dark:text-white">29 unids</h6>
+                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Preço:</p>
+                      <h6 className="mb-0 text-sm leading-normal dark:text-white">R$143,90</h6>
                     </div>
                   </td>
                 </tr>
@@ -310,14 +378,14 @@ const Dashboard = () => {
                   </td>
                   <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40">
                     <div className="text-center">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Total:</p>
+                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Valor:</p>
                       <h6 className="mb-0 text-sm leading-normal dark:text-white">R$230,90</h6>
                     </div>
                   </td>
                   <td className="p-2 text-sm leading-normal align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40">
                     <div className="flex-1 text-center">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Estoque:</p>
-                      <h6 className="mb-0 text-sm leading-normal dark:text-white">29 unids</h6>
+                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Preço:</p>
+                      <h6 className="mb-0 text-sm leading-normal dark:text-white">R$143,90</h6>
                     </div>
                   </td>
                 </tr>
@@ -341,14 +409,14 @@ const Dashboard = () => {
                   </td>
                   <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40">
                     <div className="text-center">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Total:</p>
+                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Valor:</p>
                       <h6 className="mb-0 text-sm leading-normal dark:text-white">R$230,90</h6>
                     </div>
                   </td>
                   <td className="p-2 text-sm leading-normal align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40">
                     <div className="flex-1 text-center">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Estoque:</p>
-                      <h6 className="mb-0 text-sm leading-normal dark:text-white">29 unids</h6>
+                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Preço:</p>
+                      <h6 className="mb-0 text-sm leading-normal dark:text-white">R$143,90</h6>
                     </div>
                   </td>
                 </tr>
@@ -372,14 +440,14 @@ const Dashboard = () => {
                   </td>
                   <td className="p-2 align-middle bg-transparent border-0 whitespace-nowrap">
                     <div className="text-center">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Total:</p>
+                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Valor:</p>
                       <h6 className="mb-0 text-sm leading-normal dark:text-white">R$143,90</h6>
                     </div>
                   </td>
                   <td className="p-2 text-sm leading-normal align-middle bg-transparent border-0 whitespace-nowrap">
                     <div className="flex-1 text-center">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Estoque:</p>
-                      <h6 className="mb-0 text-sm leading-normal dark:text-white">32 unids</h6>
+                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Preço:</p>
+                      <h6 className="mb-0 text-sm leading-normal dark:text-white">R$143,90</h6>
                     </div>
                   </td>
                 </tr>
@@ -391,7 +459,7 @@ const Dashboard = () => {
       <div className="w-full max-w-full px-3 mt-0 lg:w-5/12 lg:flex-none">
         <div className="border-black/12.5 shadow-xl dark:bg-slate-850 dark:shadow-dark-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
           <div className="p-4 pb-0 rounded-t-4">
-            <h6 className="mb-0 dark:text-white">Mais antigos</h6>
+            <h6 className="mb-0 dark:text-white">Produtos mais antigos</h6>
           </div>
           <div className="flex-auto p-4">
             <ul className="flex flex-row justify-between flex-wrap pl-0 mb-0 rounded-lg">
@@ -495,7 +563,7 @@ const Dashboard = () => {
     <div className="w-full max-w-full px-3 mt-0 lg:w-5/12 lg:flex-none">
         <div className="border-black/12.5 shadow-xl dark:bg-slate-850 dark:shadow-dark-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
           <div className="p-4 pb-0 rounded-t-4">
-            <h6 className="mb-0 dark:text-white">Mais vendidos</h6>
+            <h6 className="mb-0 dark:text-white">Produtos mais vendidos</h6>
           </div>
           <div className="flex-auto p-4">
             <PolarArea options={options} data={dataRadial} />
@@ -506,7 +574,7 @@ const Dashboard = () => {
         <div className="relative flex flex-col min-w-0 break-words bg-white border-0 border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl dark:bg-gray-950 border-black-125 rounded-2xl bg-clip-border">
           <div className="p-4 pb-0 mb-0 rounded-t-4">
             <div className="flex justify-between">
-              <h6 className="mb-2 dark:text-white">Aniversariantes</h6>
+              <h6 className="mb-2 dark:text-white">Clientes aniversariantes</h6>
             </div>
           </div>
           <div className="overflow-x-auto">
@@ -532,7 +600,32 @@ const Dashboard = () => {
                   </td>
                   <td className="p-2 text-sm leading-normal align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40">
                     <div className="flex-1 text-center">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Total:</p>
+                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Última compra:</p>
+                      <h6 className="mb-0 text-sm leading-normal dark:text-white">#MS-415646</h6>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="p-2 align-middle bg-transparent border-b w-3/10 whitespace-nowrap dark:border-white/40">
+                    <div className="flex items-center px-2 py-1">
+                      <div>
+                        <img src="/img/team-2.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user1" />
+                      </div>
+                      <div className="ml-6">
+                        <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">John Michael</p>
+                        <h6 className="mb-0 text-sm leading-normal dark:text-white">(11) 9 87456-1234</h6>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40">
+                    <div className="text-center">
+                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">VENDA689AD</p>
+                      <h6 className="mb-0 text-sm leading-normal dark:text-white">john@creative-tim.com</h6>
+                    </div>
+                  </td>
+                  <td className="p-2 text-sm leading-normal align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40">
+                    <div className="flex-1 text-center">
+                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Última compra:</p>
                       <h6 className="mb-0 text-sm leading-normal dark:text-white">R$230,90</h6>
                     </div>
                   </td>
@@ -557,7 +650,7 @@ const Dashboard = () => {
                   </td>
                   <td className="p-2 text-sm leading-normal align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40">
                     <div className="flex-1 text-center">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Total:</p>
+                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Última compra:</p>
                       <h6 className="mb-0 text-sm leading-normal dark:text-white">R$230,90</h6>
                     </div>
                   </td>
@@ -582,7 +675,7 @@ const Dashboard = () => {
                   </td>
                   <td className="p-2 text-sm leading-normal align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40">
                     <div className="flex-1 text-center">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Total:</p>
+                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Última compra:</p>
                       <h6 className="mb-0 text-sm leading-normal dark:text-white">R$230,90</h6>
                     </div>
                   </td>
@@ -607,7 +700,7 @@ const Dashboard = () => {
                   </td>
                   <td className="p-2 text-sm leading-normal align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40">
                     <div className="flex-1 text-center">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Total:</p>
+                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Última compra:</p>
                       <h6 className="mb-0 text-sm leading-normal dark:text-white">R$230,90</h6>
                     </div>
                   </td>
@@ -632,7 +725,7 @@ const Dashboard = () => {
                   </td>
                   <td className="p-2 text-sm leading-normal align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40">
                     <div className="flex-1 text-center">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Total:</p>
+                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Última compra:</p>
                       <h6 className="mb-0 text-sm leading-normal dark:text-white">R$230,90</h6>
                     </div>
                   </td>
@@ -657,32 +750,7 @@ const Dashboard = () => {
                   </td>
                   <td className="p-2 text-sm leading-normal align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40">
                     <div className="flex-1 text-center">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Total:</p>
-                      <h6 className="mb-0 text-sm leading-normal dark:text-white">R$230,90</h6>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="p-2 align-middle bg-transparent border-b w-3/10 whitespace-nowrap dark:border-white/40">
-                    <div className="flex items-center px-2 py-1">
-                      <div>
-                        <img src="/img/team-2.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user1" />
-                      </div>
-                      <div className="ml-6">
-                        <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">John Michael</p>
-                        <h6 className="mb-0 text-sm leading-normal dark:text-white">(11) 9 87456-1234</h6>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40">
-                    <div className="text-center">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">VENDA689AD</p>
-                      <h6 className="mb-0 text-sm leading-normal dark:text-white">john@creative-tim.com</h6>
-                    </div>
-                  </td>
-                  <td className="p-2 text-sm leading-normal align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40">
-                    <div className="flex-1 text-center">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Total:</p>
+                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Última compra:</p>
                       <h6 className="mb-0 text-sm leading-normal dark:text-white">R$230,90</h6>
                     </div>
                   </td>
@@ -707,7 +775,7 @@ const Dashboard = () => {
                   </td>
                   <td className="p-2 align-middle bg-transparent border-0 whitespace-nowrap">
                     <div className="text-center">
-                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Total:</p>
+                      <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60">Última compra:</p>
                       <h6 className="mb-0 text-sm leading-normal dark:text-white">R$143,90</h6>
                     </div>
                   </td>

@@ -32,8 +32,6 @@ export function ThemeProvider({ children }) {
   useEffect(() => localStorage.setItem("fixedNav", fixedNav), [fixedNav]);
   useEffect(() => localStorage.setItem("theme", theme), [theme]);
 
-  console.log(!localStorage.getItem("fixedNav"))
-
   return (
     <ThemeContext.Provider value={{
       isSettings, setIsSettings,
