@@ -6,7 +6,7 @@ import Notifications from "./Notifications";
 import Search from "./Search";
 
 const Navbar = () => {
-  const { fixedNav } = useContext(ThemeContext);
+  const { fixedNav, setIsMobileSidebar } = useContext(ThemeContext);
 
   return (
     <nav className={`relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start ${fixedNav && "sticky top-[1%] backdrop-saturate-200 backdrop-blur-2xl dark:bg-slate-850/80 dark:shadow-dark-blur bg-[hsla(0,0%,100%,0.8)] shadow-blur z-110"}`}>
@@ -23,7 +23,7 @@ const Navbar = () => {
                   <span className="hidden sm:inline">Perfil</span>
                 </a>
               </li>
-              <li className="flex items-center pl-4 xl:hidden">
+              <li className="flex items-center pl-4 xl:hidden" onClick={() => setIsMobileSidebar(true)}>
                 <button className="block p-0 text-sm text-white transition-all ease-nav-brand">
                   <div className="w-4.5 overflow-hidden">
                     <i className="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"></i>
