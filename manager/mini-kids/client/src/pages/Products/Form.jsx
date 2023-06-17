@@ -41,13 +41,13 @@ const Form = () => {
                   <SelectField id="supply" label="Fornecedor" icon="far fa-address-card" name="supply" placeholder="Sem fornecedor"  />
                 </div>
                 <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
-                  <SelectField id="category" label="Categoria" icon="	fas fa-transgender-alt" name="category" placeholder="Sem categoria"  />
+                  <SelectField id="category" label="Categoria" icon="fas fa-transgender-alt" name="category" placeholder="Sem categoria"  />
                 </div>
                 <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
                   <SelectField id="brand" label="Marca" icon="fas fa-asterisk" name="brand" placeholder="Sem marca"  />
                 </div>
                 <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
-                  <TextField id="age" label="Idade" icon="	fas fa-baby" title="Nome" name="age" placeholder="Informe a idade" />
+                  <TextField id="age" label="Idade" icon="fas fa-baby" title="Nome" name="age" placeholder="Informe a idade" />
                 </div>
                 <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
                   <TextField id="weight" label="Peso (gramas)" icon="fas fa-weight" title="Peso" name="weight" placeholder="Informe o peso" />
