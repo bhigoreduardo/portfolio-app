@@ -1,5 +1,6 @@
 import {
   Chart as ChartJS,
+  CategoryScale,
   LinearScale,
   PointElement,
   LineElement,
@@ -8,6 +9,7 @@ import {
 import { Line } from 'react-chartjs-2';
 import { faker  } from '@faker-js/faker';
 ChartJS.register(
+  CategoryScale,
   LinearScale,
   PointElement,
   LineElement,
