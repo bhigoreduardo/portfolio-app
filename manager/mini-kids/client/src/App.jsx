@@ -17,6 +17,10 @@ import Brands from "./pages/Brands";
 import BrandsForm from "./pages/Brands/Form";
 import Categories from "./pages/Categories";
 import CategoriesForm from "./pages/Categories/Form";
+import Colors from "./pages/Colors";
+import ColorsForm from "./pages/Colors/Form";
+import Sizes from "./pages/Sizes";
+import SizesForm from "./pages/Sizes/Form";
 import Products from "./pages/Products";
 import ProductsForm from "./pages/Products/Form";
 import Sales from "./pages/Sales";
@@ -64,6 +68,12 @@ const App = () => {
           <Route path="/categorias" element={<Categories />} />
           <Route path="/categorias/cadastro" element={<CategoriesForm />} />
           <Route path="/categorias/1" element={<CategoriesForm />} />
+          <Route path="/cores" element={<Colors />} />
+          <Route path="/cores/cadastro" element={<ColorsForm />} />
+          <Route path="/cores/:id" element={<ColorsForm />} />
+          <Route path="/tamanhos" element={<Sizes />} />
+          <Route path="/tamanhos/cadastro" element={<SizesForm />} />
+          <Route path="/tamanhos/:id" element={<SizesForm />} />
           <Route path="/produtos" element={<Products />} />
           <Route path="/produtos/cadastro" element={<ProductsForm />} />
           <Route path="/produtos/1" element={<ProductsForm />} />
