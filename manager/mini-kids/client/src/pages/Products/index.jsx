@@ -1,16 +1,10 @@
-import Layout from "../../components/Layout";
 import { products, variates } from "../../utils/data";
+import { currencyPrice, priceVariateAvg, stockAmount } from "../../utils/calculate";
+import Layout from "../../components/Layout";
+import TableSearch from "../../components/Tables/Search";
+import TableButton from "../../components/Tables/Button";
 
 const Dashboard = () => {
-  const stockAmount = id => variates.filter((item) => item.productId === id).reduce((acc, cur) => acc + cur.stock, 0)
-  const stockCount = id => variates.filter((item) => item.productId === id).length;
-  const priceVariateAmount = id => variates.filter((item) => item.productId === id).reduce((acc, cur) => acc + cur.price, 0);
-  const priceVariateAvg = id => priceVariateAmount(id)/stockCount(id);
-  const currencyPrice = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  });
-
   return <Layout>
     <div className="flex flex-wrap -mx-3">
       <div className="flex-none w-full max-w-full px-3">
@@ -22,27 +16,10 @@ const Dashboard = () => {
             </a>
           </div>
           <div className="flex-auto px-0 pt-0 pb-2">
+            <TableSearch />
+
+            {/* TABLE */}
             <div className="p-0 overflow-x-auto">
-              <div className="flex items-center justify-between p-3">
-                <div className="flex items-center gap-2 w-auto">
-                  <select  className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none">
-                    <option value={10}>10</option>
-                    <option value={20}>20</option>
-                    <option value={30}>30</option>
-                  </select>
-                  <span>exibir por página</span>
-                </div>
-
-                <div className="flex items-center">
-                  <div className="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease">
-                    <span className="text-sm ease leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
-                      <i className="fas fa-search"></i>
-                    </span>
-                    <input type="text" className="pl-9 text-sm focus:shadow-primary-outline ease w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 dark:bg-slate-850 dark:text-white bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:transition-shadow" placeholder="Pesquisar..." />
-                  </div>
-                </div>
-              </div>
-
               <table className="items-center w-full mb-0 align-top border-collapse dark:border-white/40 text-slate-500">
                 <thead className="align-bottom">
                   <tr>
@@ -60,11 +37,11 @@ const Dashboard = () => {
                     products.map((item, i) => (
                       <tr key={i}>
                         <td className={`${i === products.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
-                          <div className="flex px-2 py-1">
-                            <div>
+                          <div className="flex px-2 gap-1 py-1">
+                            <div className="w-1/4">
                               <img src={item.thumbnail} className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user1" />
                             </div>
-                            <div className="flex flex-col justify-center">
+                            <div className="flex flex-col justify-center w-3/4">
                               <h6 className="mb-0 text-sm leading-normal dark:text-white">{item.sku}</h6>
                               <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">{item.title}</p>
                             </div>
@@ -83,8 +60,8 @@ const Dashboard = () => {
                           <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">{item.supply?.mobile}</p>
                         </td>
                         <td className={`${i === products.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
-                          <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">{stockAmount(item.id)} unids</p>
-                          <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">{currencyPrice.format(priceVariateAvg(item.id))}</p>
+                          <p className="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">{stockAmount(item.id, variates)} unids</p>
+                          <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">{currencyPrice.format(priceVariateAvg(item.id, variates))}</p>
                         </td>
                         <td className={`${i === products.length -1 ? "border-b-0" : "border-b"} p-2 text-center align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
                           <span className="bg-gradient-to-tl from-emerald-500 to-teal-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">{item.status ? "Ativo" : "Inativo"}</span>
@@ -98,17 +75,9 @@ const Dashboard = () => {
                   )}
                 </tbody>
               </table>
-
-              <div className="flex items-center justify-between p-3">
-                <span>Exibindo 1 até 6 de 57 totais</span>
-                <div className="flex items-center gap-1">
-                  <button type="button" className="bg-gradient-to-tl text-white from-blue-500 to-violet-500 inline-block px-4 py-2 text-center leading-normal font-bold tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px rounded-circle transition-all ease-in cursor-pointer active:opacity-85 hover:shadow-md">1</button>
-                  <button type="button" className="bg-white text-blue-500 bg-none inline-block px-4 py-2 text-center leading-normal font-bold tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px rounded-circle transition-all ease-in cursor-pointer active:opacity-85 hover:shadow-md">2</button>
-                  <button type="button" className="bg-white text-blue-500 bg-none inline-block px-4 py-2 text-center leading-normal font-bold tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px rounded-circle transition-all ease-in cursor-pointer active:opacity-85 hover:shadow-md">3</button>
-                  <button type="button" className="bg-white text-blue-500 bg-none inline-block px-4 py-2 text-center leading-normal font-bold tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px rounded-circle transition-all ease-in cursor-pointer active:opacity-85 hover:shadow-md">4</button>
-                </div>
-              </div>
             </div>
+
+            <TableButton />
           </div>
         </div>
       </div>
