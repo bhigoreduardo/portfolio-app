@@ -12,8 +12,8 @@ const Sidebar = () => {
       <div className="h-19">
         <i className="absolute top-0 right-0 p-4 opacity-50 cursor-pointer fas fa-times dark:text-white text-slate-400 xl:hidden"></i>
         <a  href="/painel" className="block px-8 py-6 m-0 text-sm whitespace-nowrap dark:text-white text-slate-700">
-          <img src="/img/illustrations/rocket-white.png" className="inline h-full max-w-full transition-all duration-200 dark:hidden ease-nav-brand max-h-8" />
-          <img src="/img/illustrations/rocket-white.png" className="hidden h-full max-w-full transition-all duration-200 dark:inline ease-nav-brand max-h-8" alt="Logo" />
+          <img src="/img/logo.png" className="inline h-full max-w-full transition-all duration-200 dark:hidden ease-nav-brand max-h-8" />
+          <img src="/img/logo.png" className="hidden h-full max-w-full transition-all duration-200 dark:inline ease-nav-brand max-h-8" alt="Logo" />
           <span className="ml-1 font-semibold transition-all duration-200 ease-nav-brand">Mini Kids</span>
         </a>
       </div>
@@ -222,7 +222,7 @@ const Sidebar = () => {
         <div className="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border">
           <img
             className="w-1/2 mx-auto"
-            src="/img/illustrations/icon-documentation.svg"
+            src="/img/docs.svg"
             alt="sidebar illustrations"
           />
           <div className="flex-auto w-full p-4 pt-0 text-center">
