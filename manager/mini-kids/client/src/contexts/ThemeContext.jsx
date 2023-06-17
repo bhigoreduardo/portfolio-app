@@ -26,6 +26,7 @@ export function ThemeProvider({ children }) {
       ? localStorage.getItem("theme")
       : "light"
   );
+  const [isMobileSidebar, setIsMobileSidebar] = useState(false);
 
   useEffect(() => localStorage.setItem("colorSidebar", colorSidebar), [colorSidebar]);
   useEffect(() => localStorage.setItem("themeSidebar", themeSidebar), [themeSidebar]);
@@ -39,6 +40,7 @@ export function ThemeProvider({ children }) {
       themeSidebar, setThemeSidebar,
       fixedNav, setFixedNav,
       theme, setTheme,
+      isMobileSidebar, setIsMobileSidebar,
     }}>
       {children}
     </ThemeContext.Provider>
