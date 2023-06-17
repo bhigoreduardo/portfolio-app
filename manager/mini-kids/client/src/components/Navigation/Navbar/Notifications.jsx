@@ -19,7 +19,7 @@ const Notifications = () => {
           <a className="dark:hover:bg-slate-900 ease py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="/">
             <div className="flex py-1">
               <div className="my-auto">
-                <img src="/img/team-2.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white h-9 w-9 max-w-none rounded-xl" />
+                <img src="/img/avatar-2.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white h-9 w-9 max-w-none rounded-xl" />
               </div>
               <div className="flex flex-col justify-center">
                 <h6 className="mb-1 text-sm font-normal leading-normal dark:text-white"><span className="font-semibold">Nova mensagem</span> de Jorjão</h6>
@@ -36,7 +36,7 @@ const Notifications = () => {
           <a className="dark:hover:bg-slate-900 ease py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 hover:text-slate-700" href="/">
             <div className="flex py-1">
               <div className="my-auto">
-                <img src="/img/team-2.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white bg-gradient-to-tl from-zinc-800 to-zinc-700 dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850 h-9 w-9 max-w-none rounded-xl" />
+                <img src="/img/avatar-2.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white bg-gradient-to-tl from-zinc-800 to-zinc-700 dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850 h-9 w-9 max-w-none rounded-xl" />
               </div>
               <div className="flex flex-col justify-center">
                 <h6 className="mb-1 text-sm font-normal leading-normal dark:text-white"><span className="font-semibold">Pendência</span> de Jurandir</h6>
