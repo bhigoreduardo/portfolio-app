@@ -1,3 +1,4 @@
+import { useState } from "react";
 import AreaField from "../../components/Inputs/AreaField";
 import DateField from "../../components/Inputs/DateField";
 import SelectField from "../../components/Inputs/SelectField";
@@ -6,6 +7,8 @@ import Layout from "../../components/Layout";
 import FormTitle from "../../components/Navigation/FormTitle";
 
 const Form = () => {
+  const [image, setImage] = useState("");
+
   return (
     <Layout>
       <form className="flex flex-wrap -mx-3">
@@ -46,6 +49,28 @@ const Form = () => {
               </div>
               <hr className="h-px mx-0 my-4 bg-transparent border-0 opacity-25 bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent " />
               
+              <p className="leading-normal uppercase dark:text-white dark:opacity-60 text-sm"><i className="fa fa-image"></i>&nbsp;Foto do usuário</p>
+              <div className="flex flex-wrap py-3">
+                <div className="w-full max-w-full px-3 shrink-0 md:flex-0">
+                  <label htmlFor="thumbnail" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Foto</label>
+                  <div className="flex items-center gap-2">
+                    <label className="w-24 h-24 dark:bg-slate-850 dark:text-white border border-gray-300 bg-white text-slate-700 flex items-center justify-center gap-1 rounded-lg cursor-pointer text-sm font-semibold">
+                      <i className="fa fa-image"></i>&nbsp;Foto
+                      <input type="file" onChange={(e) => setImage(e.target.files[0])} className="hidden" />
+                    </label>
+                    <div className="relative w-24 h-24 bg-gray-300 flex items-center justify-center rounded-lg overflow-hidden">
+                      {!image ? "Sem foto" : (
+                        <>
+                          <i onClick={() => setImage("")} className="absolute top-0 right-0 fa fa-times text-white bg-red-500 text-xs py-1 px-2 rounded-lg cursor-pointer"></i>
+                          <img src={window.URL.createObjectURL(image)} className="object-cover"/>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr className="h-px mx-0 my-4 bg-transparent border-0 opacity-25 bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent " />
+
               <p className="leading-normal uppercase dark:text-white dark:opacity-60 text-sm"><i className="fa fa-lock"></i>&nbsp;Informação de segurança</p>
               <div className="flex flex-wrap py-3">
                 <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">

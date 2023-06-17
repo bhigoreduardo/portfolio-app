@@ -1,8 +1,8 @@
-import SelectField from "../../components/Inputs/SelectField";
-import TextField from "../../components/Inputs/TextField";
+import { customers } from "../../utils/data";
 import Layout from "../../components/Layout";
 import ListTitle from "../../components/Navigation/ListTitle";
-import { customers } from "../../utils/data";
+import TableSearch from "../../components/Tables/Search";
+import TableButton from "../../components/Tables/Button";
 
 const Dashboard = () => {
   return <Layout>
@@ -12,16 +12,10 @@ const Dashboard = () => {
           <ListTitle heading="Lista de clientes" target="/clientes/cadastro" title="Adicionar cliente" icon="fas fa-user-tie" />
 
           <div className="flex-auto px-0 pt-0 pb-2">
-            <div className="p-0 overflow-x-auto">
-              <div className="flex items-center p-3">
-                <div className="px-3 shrink-0mb-3">
-                  <SelectField id="count" label="Exibir por página" icon="fas fa-chevron-down" name="count" placeholder="Padrão" />
-                </div>
-                <div className="ml-auto">
-                  <TextField id="search" label="" icon="fas fa-search" title="Pesquisar" name="search" placeholder="Pesquisar" />
-                </div>
-              </div>
+            <TableSearch />
 
+            {/* TABLE */}
+            <div className="p-0 overflow-x-auto">
               <table className="items-center w-full mb-0 align-top border-collapse dark:border-white/40 text-slate-500">
                 <thead className="align-bottom">
                   <tr>
@@ -39,10 +33,10 @@ const Dashboard = () => {
                       <tr key={i}>
                         <td className={`${i === customers.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
                           <div className="flex px-2 py-1">
-                            <div>
+                            <div className="w-1/4">
                               <img src={item.image} className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user1" />
                             </div>
-                            <div className="flex flex-col justify-center">
+                            <div className="flex flex-col justify-center w-3/4">
                               <h6 className="mb-0 text-sm leading-normal dark:text-white">{item.name} {item.lastName}</h6>
                               <p className="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">{item.email}</p>
                             </div>
@@ -69,17 +63,9 @@ const Dashboard = () => {
                   }                  
                 </tbody>
               </table>
-              
-              <div className="flex items-center justify-between p-3">
-                <span>Exibindo 1 até 6 de 57 totais</span>
-                <div className="flex items-center gap-1">
-                  <button type="button" className="bg-gradient-to-tl text-white from-blue-500 to-violet-500 inline-block px-4 py-2 text-center leading-normal font-bold tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px rounded-circle transition-all ease-in cursor-pointer active:opacity-85 hover:shadow-md">1</button>
-                  <button type="button" className="bg-white text-blue-500 bg-none inline-block px-4 py-2 text-center leading-normal font-bold tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px rounded-circle transition-all ease-in cursor-pointer active:opacity-85 hover:shadow-md">2</button>
-                  <button type="button" className="bg-white text-blue-500 bg-none inline-block px-4 py-2 text-center leading-normal font-bold tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px rounded-circle transition-all ease-in cursor-pointer active:opacity-85 hover:shadow-md">3</button>
-                  <button type="button" className="bg-white text-blue-500 bg-none inline-block px-4 py-2 text-center leading-normal font-bold tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px rounded-circle transition-all ease-in cursor-pointer active:opacity-85 hover:shadow-md">4</button>
-                </div>
-              </div>
             </div>
+
+            <TableButton />
           </div>
         </div>
       </div>

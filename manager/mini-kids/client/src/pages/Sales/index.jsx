@@ -1,38 +1,20 @@
 import Layout from "../../components/Layout";
+import ListTitle from "../../components/Navigation/ListTitle";
+import TableSearch from "../../components/Tables/Search";
+import TableButton from "../../components/Tables/Button";
 
 const Dashboard = () => {
   return <Layout>
     <div className="flex flex-wrap -mx-3">
       <div className="flex-none w-full max-w-full px-3">
         <div className="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
-          <div className="flex items-center justify-between p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-            <h6 className="dark:text-white">Lista de vendas</h6>
-            <a href="/vendas/cadastro" title="Adicionar cliente" type="button" className="inline-block px-8 py-2 mb-4 font-bold leading-normal text-center text-white uppercase align-middle transition-all ease-in rounded-lg shadow-xs cursor-pointer bg-gradient-to-tl from-blue-500 to-violet-500 text-xs tracking-tight-rem bg-150 bg-x-25 hover:-translate-y-px active:opacity-85 hover:shadow-md">
-              <i className="fas fa-shopping-cart text-white-50"></i>&nbsp;Adicionar
-            </a>
-          </div>
+          <ListTitle heading="Lista de vendas" target="/vendas/cadastro" title="Adicionar venda" icon="fas fa-shopping-cart" />
+
           <div className="flex-auto px-0 pt-0 pb-2">
+            <TableSearch />
+
+            {/* TABLE */}
             <div className="p-0 overflow-x-auto">
-              <div className="flex items-center justify-between p-3">
-                <div className="flex items-center gap-2 w-auto">
-                  <select  className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none">
-                    <option value={10}>10</option>
-                    <option value={20}>20</option>
-                    <option value={30}>30</option>
-                  </select>
-                  <span>exibir por página</span>
-                </div>
-
-                <div className="flex items-center">
-                  <div className="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease">
-                    <span className="text-sm ease leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
-                      <i className="fas fa-search"></i>
-                    </span>
-                    <input type="text" className="pl-9 text-sm focus:shadow-primary-outline ease w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 dark:bg-slate-850 dark:text-white bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:transition-shadow" placeholder="Pesquisar..." />
-                  </div>
-                </div>
-              </div>
-
               <table className="items-center w-full mb-0 align-top border-collapse dark:border-white/40 text-slate-500">
                 <thead className="align-bottom">
                   <tr>
@@ -49,7 +31,7 @@ const Dashboard = () => {
                     <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                       <div className="flex px-2 py-1">
                         <div>
-                          <img src="/img/team-2.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user1" />
+                          <img src="/img/avatar-2.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user1" />
                         </div>
                         <div className="flex flex-col justify-center">
                           <h6 className="mb-0 text-sm leading-normal dark:text-white">John Michael</h6>
@@ -82,7 +64,7 @@ const Dashboard = () => {
                     <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                       <div className="flex px-2 py-1">
                         <div>
-                          <img src="/img/team-3.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user2" />
+                          <img src="/img/avatar-3.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user2" />
                         </div>
                         <div className="flex flex-col justify-center">
                           <h6 className="mb-0 text-sm leading-normal dark:text-white">Alexa Liras</h6>
@@ -114,7 +96,7 @@ const Dashboard = () => {
                     <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                       <div className="flex px-2 py-1">
                         <div>
-                          <img src="/img/team-4.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user3" />
+                          <img src="/img/avatar-4.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user3" />
                         </div>
                         <div className="flex flex-col justify-center">
                           <h6 className="mb-0 text-sm leading-normal dark:text-white">Laurent Perrier</h6>
@@ -146,7 +128,7 @@ const Dashboard = () => {
                     <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                       <div className="flex px-2 py-1">
                         <div>
-                          <img src="/img/team-3.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user4" />
+                          <img src="/img/avatar-3.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user4" />
                         </div>
                         <div className="flex flex-col justify-center">
                           <h6 className="mb-0 text-sm leading-normal dark:text-white">Michael Levi</h6>
@@ -178,7 +160,7 @@ const Dashboard = () => {
                     <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                       <div className="flex px-2 py-1">
                         <div>
-                          <img src="/img/team-2.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user5" />
+                          <img src="/img/avatar-2.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user5" />
                         </div>
                         <div className="flex flex-col justify-center">
                           <h6 className="mb-0 text-sm leading-normal dark:text-white">Richard Gran</h6>
@@ -210,7 +192,7 @@ const Dashboard = () => {
                     <td className="p-2 align-middle bg-transparent border-b-0 whitespace-nowrap shadow-transparent">
                       <div className="flex px-2 py-1">
                         <div>
-                          <img src="/img/team-4.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user6" />
+                          <img src="/img/avatar-4.jpg" className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user6" />
                         </div>
                         <div className="flex flex-col justify-center">
                           <h6 className="mb-0 text-sm leading-normal dark:text-white">Miriam Eric</h6>
@@ -240,17 +222,8 @@ const Dashboard = () => {
                   </tr>
                 </tbody>
               </table>
-
-              <div className="flex items-center justify-between p-3">
-                <span>Exibindo 1 até 6 de 57 totais</span>
-                <div className="flex items-center gap-1">
-                  <button type="button" className="bg-gradient-to-tl text-white from-blue-500 to-violet-500 inline-block px-4 py-2 text-center leading-normal font-bold tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px rounded-circle transition-all ease-in cursor-pointer active:opacity-85 hover:shadow-md">1</button>
-                  <button type="button" className="bg-white text-blue-500 bg-none inline-block px-4 py-2 text-center leading-normal font-bold tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px rounded-circle transition-all ease-in cursor-pointer active:opacity-85 hover:shadow-md">2</button>
-                  <button type="button" className="bg-white text-blue-500 bg-none inline-block px-4 py-2 text-center leading-normal font-bold tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px rounded-circle transition-all ease-in cursor-pointer active:opacity-85 hover:shadow-md">3</button>
-                  <button type="button" className="bg-white text-blue-500 bg-none inline-block px-4 py-2 text-center leading-normal font-bold tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px rounded-circle transition-all ease-in cursor-pointer active:opacity-85 hover:shadow-md">4</button>
-                </div>
-              </div>
             </div>
+            <TableButton />
           </div>
         </div>
       </div>
