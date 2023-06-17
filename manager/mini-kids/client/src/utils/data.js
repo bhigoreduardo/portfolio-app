@@ -18,7 +18,7 @@ export const customers = [
     number: 789,
     status: true,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-2.jpg",
+    image: "/img/avatar-1.jpg",
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ export const customers = [
     number: 789,
     status: true,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-3.jpg",
+    image: "/img/avatar-2.jpg",
   },
   {
     id: 3,
@@ -60,7 +60,7 @@ export const customers = [
     number: 789,
     status: true,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-4.jpg",
+    image: "/img/avatar-3.jpg",
   },
   {
     id: 4,
@@ -81,7 +81,7 @@ export const customers = [
     number: 789,
     status: false,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-3.jpg",
+    image: "/img/avatar-4.jpg",
   },
   {
     id: 5,
@@ -102,7 +102,7 @@ export const customers = [
     number: 789,
     status: false,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-2.jpg",
+    image: "/img/avatar-5.jpg",
   },
   {
     id: 6,
@@ -123,8 +123,50 @@ export const customers = [
     number: 789,
     status: false,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-4.jpg",
-  }
+    image: "/img/avatar-6.jpg",
+  },
+  {
+    id: 7,
+    personType: 1,
+    email: "john@email.com",
+    name: "John",
+    lastName: "Michael",
+    phone: "(11) 9 87456-1234",
+    mobile: "(11) 9 87456-1234",
+    cpfCnpj: "123.456.789-23",
+    rgIe: "12364-897",
+    birthday: "21/02/2000",
+    address: "Rua do Jurandir Carrasco",
+    city: "São Paulo",
+    state: "São Paulo",
+    neighborhood: "Bairro Principal",
+    cep: "123456-789",
+    number: 789,
+    status: true,
+    obs: "Lorem ipsum et dolor al",
+    image: "/img/avatar-8.jpg",
+  },
+  {
+    id: 8,
+    personType: 1,
+    email: "alexa@email.com",
+    name: "Alexa",
+    lastName: "Liras",
+    phone: "(11) 9 87456-1234",
+    mobile: "(11) 9 87456-1234",
+    cpfCnpj: "123.456.789-23",
+    rgIe: "12364-897",
+    birthday: "21/02/2000",
+    address: "Rua do Jurandir Carrasco",
+    city: "São Paulo",
+    state: "São Paulo",
+    neighborhood: "Bairro Principal",
+    cep: "123456-789",
+    number: 789,
+    status: true,
+    obs: "Lorem ipsum et dolor al",
+    image: "/img/avatar-1.jpg",
+  },
 ];
 export const supplies = [
   {
@@ -146,7 +188,7 @@ export const supplies = [
     number: 789,
     status: true,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-2.jpg",
+    image: "/img/avatar-7.jpg",
   },
   {
     id: 2,
@@ -167,7 +209,7 @@ export const supplies = [
     number: 789,
     status: true,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-3.jpg",
+    image: "/img/avatar-8.jpg",
   },
   {
     id: 3,
@@ -188,7 +230,7 @@ export const supplies = [
     number: 789,
     status: true,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-4.jpg",
+    image: "/img/avatar-1.jpg",
   },
   {
     id: 4,
@@ -209,7 +251,7 @@ export const supplies = [
     number: 789,
     status: false,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-3.jpg",
+    image: "/img/avatar-2.jpg",
   },
   {
     id: 5,
@@ -230,7 +272,7 @@ export const supplies = [
     number: 789,
     status: false,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-2.jpg",
+    image: "/img/avatar-3.jpg",
   },
   {
     id: 6,
@@ -251,7 +293,7 @@ export const supplies = [
     number: 789,
     status: false,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-4.jpg",
+    image: "/img/avatar-4.jpg",
   }
 ];
 export const sallers = [
@@ -273,7 +315,7 @@ export const sallers = [
     number: 789,
     status: true,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-2.jpg",
+    image: "/img/avatar-5.jpg",
   },
   {
     id: 2,
@@ -293,7 +335,7 @@ export const sallers = [
     number: 789,
     status: true,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-3.jpg",
+    image: "/img/avatar-6.jpg",
   },
   {
     id: 3,
@@ -313,7 +355,7 @@ export const sallers = [
     number: 789,
     status: true,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-4.jpg",
+    image: "/img/avatar-7.jpg",
   },
   {
     id: 4,
@@ -333,7 +375,7 @@ export const sallers = [
     number: 789,
     status: false,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-3.jpg",
+    image: "/img/avatar-8.jpg",
   },
   {
     id: 5,
@@ -353,7 +395,7 @@ export const sallers = [
     number: 789,
     status: false,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-2.jpg",
+    image: "/img/avatar-1.jpg",
   },
   {
     id: 6,
@@ -373,7 +415,7 @@ export const sallers = [
     number: 789,
     status: false,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-4.jpg",
+    image: "/img/avatar-2.jpg",
   }
 ];
 export const brands = [
@@ -439,8 +481,8 @@ export const products = [
     status: true,
     obs: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae reprehenderit repellendus expedita esse cupiditate quos doloremque rerum, corrupti ab illum est nihil, voluptate ex dignissimos! Sit voluptatem delectus nam, molestiae, repellendus ab sint quo aliquam debitis amet natus doloremque laudantium? Repudiandae, consequuntur, officiis quidem quo deleniti, autem non laudantium sequi error molestiae ducimus accusamus facere velit consectetur vero dolore natus nihil temporibus aspernatur quia consequatur? Consequuntur voluptate deserunt repellat tenetur debitis molestiae doloribus dicta. In rem illum dolorem atque ratione voluptates asperiores maxime doloremque laudantium magni neque ad quae quos quidem, quaerat rerum ducimus blanditiis reiciendis",
     createdAt: "2 Fevereiro 2020",
-    thumbnail: "/img/products/feminino/blazer-vermelho.webp",
-    medias: ["/img/feminino/blazer-vermelho.webp"],
+    thumbnail: "/img/produtos/feminino/blazer-vermelho.webp",
+    medias: ["/img/produtos/feminino/blazer-vermelho.webp"],
   },
   {
     id: 2,
@@ -457,8 +499,8 @@ export const products = [
     status: true,
     obs: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae reprehenderit repellendus expedita esse cupiditate quos doloremque rerum, corrupti ab illum est nihil, voluptate ex dignissimos! Sit voluptatem delectus nam, molestiae, repellendus ab sint quo aliquam debitis amet natus doloremque laudantium? Repudiandae, consequuntur, officiis quidem quo deleniti, autem non laudantium sequi error molestiae ducimus accusamus facere velit consectetur vero dolore natus nihil temporibus aspernatur quia consequatur? Consequuntur voluptate deserunt repellat tenetur debitis molestiae doloribus dicta. In rem illum dolorem atque ratione voluptates asperiores maxime doloremque laudantium magni neque ad quae quos quidem, quaerat rerum ducimus blanditiis reiciendis",
     createdAt: "2 Fevereiro 2020",
-    thumbnail: "/img/products/feminino/blazer-azul.webp",
-    medias: ["/img/products/feminino/blazer-vermelho.webp"],
+    thumbnail: "/img/produtos/feminino/blazer-azul.webp",
+    medias: ["/img/produtos/feminino/blazer-vermelho.webp"],
   },
   {
     id: 3,
@@ -475,8 +517,8 @@ export const products = [
     status: true,
     obs: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae reprehenderit repellendus expedita esse cupiditate quos doloremque rerum, corrupti ab illum est nihil, voluptate ex dignissimos! Sit voluptatem delectus nam, molestiae, repellendus ab sint quo aliquam debitis amet natus doloremque laudantium? Repudiandae, consequuntur, officiis quidem quo deleniti, autem non laudantium sequi error molestiae ducimus accusamus facere velit consectetur vero dolore natus nihil temporibus aspernatur quia consequatur? Consequuntur voluptate deserunt repellat tenetur debitis molestiae doloribus dicta. In rem illum dolorem atque ratione voluptates asperiores maxime doloremque laudantium magni neque ad quae quos quidem, quaerat rerum ducimus blanditiis reiciendis",
     createdAt: "2 Fevereiro 2020",
-    thumbnail: "/img/products/feminino/blusa-azul.webp",
-    medias: ["/img/products/feminino/blusa-azul.webp"],
+    thumbnail: "/img/produtos/feminino/blusa-azul.webp",
+    medias: ["/img/produtos/feminino/blusa-azul.webp"],
   },
   {
     id: 4,
@@ -493,8 +535,8 @@ export const products = [
     status: true,
     obs: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae reprehenderit repellendus expedita esse cupiditate quos doloremque rerum, corrupti ab illum est nihil, voluptate ex dignissimos! Sit voluptatem delectus nam, molestiae, repellendus ab sint quo aliquam debitis amet natus doloremque laudantium? Repudiandae, consequuntur, officiis quidem quo deleniti, autem non laudantium sequi error molestiae ducimus accusamus facere velit consectetur vero dolore natus nihil temporibus aspernatur quia consequatur? Consequuntur voluptate deserunt repellat tenetur debitis molestiae doloribus dicta. In rem illum dolorem atque ratione voluptates asperiores maxime doloremque laudantium magni neque ad quae quos quidem, quaerat rerum ducimus blanditiis reiciendis",
     createdAt: "12 Fevereiro 2020",
-    thumbnail: "/img/products/feminino/calca-amarela.webp",
-    medias: ["/img/products/feminino/calca-amarela.webp"],
+    thumbnail: "/img/produtos/feminino/calca-amarela.webp",
+    medias: ["/img/produtos/feminino/calca-amarela.webp"],
   },
   {
     id: 5,
@@ -511,8 +553,8 @@ export const products = [
     status: true,
     obs: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae reprehenderit repellendus expedita esse cupiditate quos doloremque rerum, corrupti ab illum est nihil, voluptate ex dignissimos! Sit voluptatem delectus nam, molestiae, repellendus ab sint quo aliquam debitis amet natus doloremque laudantium? Repudiandae, consequuntur, officiis quidem quo deleniti, autem non laudantium sequi error molestiae ducimus accusamus facere velit consectetur vero dolore natus nihil temporibus aspernatur quia consequatur? Consequuntur voluptate deserunt repellat tenetur debitis molestiae doloribus dicta. In rem illum dolorem atque ratione voluptates asperiores maxime doloremque laudantium magni neque ad quae quos quidem, quaerat rerum ducimus blanditiis reiciendis",
     createdAt: "12 Fevereiro 2020",
-    thumbnail: "/img/products/feminino/camisa-preta.jpg",
-    medias: ["/img/products/feminino/camisa-preta.jpg"],
+    thumbnail: "/img/produtos/feminino/camisa-preta.jpg",
+    medias: ["/img/produtos/feminino/camisa-preta.jpg"],
   },
   {
     id: 6,
@@ -529,8 +571,8 @@ export const products = [
     status: true,
     obs: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae reprehenderit repellendus expedita esse cupiditate quos doloremque rerum, corrupti ab illum est nihil, voluptate ex dignissimos! Sit voluptatem delectus nam, molestiae, repellendus ab sint quo aliquam debitis amet natus doloremque laudantium? Repudiandae, consequuntur, officiis quidem quo deleniti, autem non laudantium sequi error molestiae ducimus accusamus facere velit consectetur vero dolore natus nihil temporibus aspernatur quia consequatur? Consequuntur voluptate deserunt repellat tenetur debitis molestiae doloribus dicta. In rem illum dolorem atque ratione voluptates asperiores maxime doloremque laudantium magni neque ad quae quos quidem, quaerat rerum ducimus blanditiis reiciendis",
     createdAt: "12 Fevereiro 2020",
-    thumbnail: "/img/products/feminino/cinto-cinza.webp",
-    medias: ["/img/products/feminino/cinto-cinza.webp"],
+    thumbnail: "/img/produtos/feminino/cinto-cinza.webp",
+    medias: ["/img/produtos/feminino/cinto-cinza.webp"],
   },
   {
     id: 7,
@@ -547,8 +589,8 @@ export const products = [
     status: true,
     obs: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae reprehenderit repellendus expedita esse cupiditate quos doloremque rerum, corrupti ab illum est nihil, voluptate ex dignissimos! Sit voluptatem delectus nam, molestiae, repellendus ab sint quo aliquam debitis amet natus doloremque laudantium? Repudiandae, consequuntur, officiis quidem quo deleniti, autem non laudantium sequi error molestiae ducimus accusamus facere velit consectetur vero dolore natus nihil temporibus aspernatur quia consequatur? Consequuntur voluptate deserunt repellat tenetur debitis molestiae doloribus dicta. In rem illum dolorem atque ratione voluptates asperiores maxime doloremque laudantium magni neque ad quae quos quidem, quaerat rerum ducimus blanditiis reiciendis",
     createdAt: "12 Fevereiro 2020",
-    thumbnail: "/img/products/feminino/jaqueta-vermelha.webp",
-    medias: ["/img/products/feminino/jaqueta-vermelha.webp"],
+    thumbnail: "/img/produtos/feminino/jaqueta-vermelha.webp",
+    medias: ["/img/produtos/feminino/jaqueta-vermelha.webp"],
   },
   {
     id: 8,
@@ -565,8 +607,8 @@ export const products = [
     status: true,
     obs: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae reprehenderit repellendus expedita esse cupiditate quos doloremque rerum, corrupti ab illum est nihil, voluptate ex dignissimos! Sit voluptatem delectus nam, molestiae, repellendus ab sint quo aliquam debitis amet natus doloremque laudantium? Repudiandae, consequuntur, officiis quidem quo deleniti, autem non laudantium sequi error molestiae ducimus accusamus facere velit consectetur vero dolore natus nihil temporibus aspernatur quia consequatur? Consequuntur voluptate deserunt repellat tenetur debitis molestiae doloribus dicta. In rem illum dolorem atque ratione voluptates asperiores maxime doloremque laudantium magni neque ad quae quos quidem, quaerat rerum ducimus blanditiis reiciendis",
     createdAt: "12 Fevereiro 2020",
-    thumbnail: "/img/products/feminino/saia-vermelha.webp",
-    medias: ["/img/products/feminino/saia-vermelha.webp"],
+    thumbnail: "/img/produtos/feminino/saia-vermelha.webp",
+    medias: ["/img/produtos/feminino/saia-vermelha.webp"],
   },
   {
     id: 9,
@@ -583,8 +625,8 @@ export const products = [
     status: true,
     obs: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae reprehenderit repellendus expedita esse cupiditate quos doloremque rerum, corrupti ab illum est nihil, voluptate ex dignissimos! Sit voluptatem delectus nam, molestiae, repellendus ab sint quo aliquam debitis amet natus doloremque laudantium? Repudiandae, consequuntur, officiis quidem quo deleniti, autem non laudantium sequi error molestiae ducimus accusamus facere velit consectetur vero dolore natus nihil temporibus aspernatur quia consequatur? Consequuntur voluptate deserunt repellat tenetur debitis molestiae doloribus dicta. In rem illum dolorem atque ratione voluptates asperiores maxime doloremque laudantium magni neque ad quae quos quidem, quaerat rerum ducimus blanditiis reiciendis",
     createdAt: "12 Fevereiro 2020",
-    thumbnail: "/img/products/feminino/vestido-amarelo.webp",
-    medias: ["/img/products/feminino/vestido-amarelo.webp"],
+    thumbnail: "/img/produtos/feminino/vestido-amarelo.webp",
+    medias: ["/img/produtos/feminino/vestido-amarelo.webp"],
   },
   {
     id: 10,
@@ -601,8 +643,8 @@ export const products = [
     status: true,
     obs: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae reprehenderit repellendus expedita esse cupiditate quos doloremque rerum, corrupti ab illum est nihil, voluptate ex dignissimos! Sit voluptatem delectus nam, molestiae, repellendus ab sint quo aliquam debitis amet natus doloremque laudantium? Repudiandae, consequuntur, officiis quidem quo deleniti, autem non laudantium sequi error molestiae ducimus accusamus facere velit consectetur vero dolore natus nihil temporibus aspernatur quia consequatur? Consequuntur voluptate deserunt repellat tenetur debitis molestiae doloribus dicta. In rem illum dolorem atque ratione voluptates asperiores maxime doloremque laudantium magni neque ad quae quos quidem, quaerat rerum ducimus blanditiis reiciendis",
     createdAt: "12 Fevereiro 2020",
-    thumbnail: "/img/products/feminino/vestido-roxo.webp",
-    medias: ["/img/products/feminino/vestido-roxo.webp"],
+    thumbnail: "/img/produtos/feminino/vestido-roxo.webp",
+    medias: ["/img/produtos/feminino/vestido-roxo.webp"],
   },
 ];
 export const variates = [
@@ -819,7 +861,7 @@ export const variates = [
 export const payments = [
   {
     id: 1,
-    supply: { name: "John Michael", email: "john@email.com", image: "/img/team-2.jpg" },
+    supply: { name: "John Michael", email: "john@email.com", image: "/img/avatar-3.jpg" },
     amount: 250.99,
     deadlineAt: "Fri Jun 16 2023",
     paymentAt: "",
@@ -827,7 +869,7 @@ export const payments = [
   },
   {
     id: 2,
-    supply: { name: "Miriam Eric", email: "miriam@email.com", image: "/img/team-3.jpg" },
+    supply: { name: "Miriam Eric", email: "miriam@email.com", image: "/img/avatar-4.jpg" },
     amount: 150.99,
     deadlineAt: "25 Agosto 2010",
     paymentAt: "30 Agosto 2010",
@@ -835,7 +877,7 @@ export const payments = [
   },
   {
     id: 3,
-    supply: { name: "Laurent Perret", email: "laurent@email.com", image: "/img/team-4.jpg" },
+    supply: { name: "Laurent Perret", email: "laurent@email.com", image: "/img/avatar-5.jpg" },
     amount: 290.99,
     deadlineAt: "Fri Jun 16 2024",
     paymentAt: "",
@@ -845,7 +887,7 @@ export const payments = [
 export const sales = [
   {
     id: 1,
-    customer: { name: "John Michael", email: "john@email.com", image: "/img/team-2.jpg" },
+    customer: { name: "John Michael", email: "john@email.com", image: "/img/avatar-6.jpg" },
     saller: { name: "Jorjão do Anabol" },
     paymentMethod: "Crédito",
     createAt: "25 Agosto 2010",
@@ -903,7 +945,7 @@ export const users = [
     number: 789,
     status: true,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-2.jpg",
+    image: "/img/avatar-2.jpg",
   },
   {
     id: 2,
@@ -924,7 +966,7 @@ export const users = [
     number: 789,
     status: true,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-3.jpg",
+    image: "/img/avatar-3.jpg",
   },
   {
     id: 3,
@@ -945,7 +987,7 @@ export const users = [
     number: 789,
     status: true,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-4.jpg",
+    image: "/img/avatar-4.jpg",
   },
   {
     id: 4,
@@ -966,7 +1008,7 @@ export const users = [
     number: 789,
     status: false,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-3.jpg",
+    image: "/img/avatar-3.jpg",
   },
   {
     id: 5,
@@ -987,7 +1029,7 @@ export const users = [
     number: 789,
     status: false,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-2.jpg",
+    image: "/img/avatar-2.jpg",
   },
   {
     id: 6,
@@ -1008,6 +1050,6 @@ export const users = [
     number: 789,
     status: false,
     obs: "Lorem ipsum et dolor al",
-    image: "/img/team-4.jpg",
+    image: "/img/avatar-4.jpg",
   }
 ];
