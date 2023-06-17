@@ -2,7 +2,7 @@
 const SelectField = ({ id, label, icon, name, placeholder, dataList, ...rest }) => {
   return (
     <div>
-      <label htmlFor={id} className="font-bold text-xs text-slate-700 dark:text-white/80">{label}</label>
+      <label htmlFor={id} className="block font-bold text-xs text-slate-700 dark:text-white/80">{label}</label>
       <div className="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease mt-2">
         <span className="text-sm ease leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
           <i className={icon} aria-hidden="true"></i>

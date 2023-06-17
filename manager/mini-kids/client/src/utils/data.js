@@ -462,9 +462,65 @@ export const categories = [
     status: true,
   }
 ];
-
-export const colors = ["Vermelho", "Amarelo", "Branco", "Verde", "Rosa"];
-export const sizes = ["PP", "P", "M", "G", "GG", "XG"];
+export const colors = [
+  {
+    id: 1,
+    name: "Vermelho",
+    status: true,
+  },
+  {
+  id: 2,
+  name: "Amarelo",
+  status: false,
+  },
+  {
+  id: 3,
+  name: "Branco",
+  status: true,
+  },
+  {
+    id: 4,
+    name: "Verde",
+    status: true,
+  },
+  {
+    id: 5,
+    name: "Rosa",
+    status: false,
+  }
+];
+export const sizes = [
+  {
+    id: 1,
+    name: "PP",
+    status: true,
+  },
+  {
+    id: 2,
+    name: "P",
+    status: false,
+  },
+  {
+    id: 3,
+    name: "M",
+    status: true,
+  },
+  {
+    id: 4,
+    name: "G",
+    status: true,
+  },
+  {
+    id: 5,
+    name: "GG",
+    status: true,
+  },
+  {
+    id: 6,
+    name: "XG",
+    status: false,
+  }
+];
 export const products = [
   {
     id: 1,
