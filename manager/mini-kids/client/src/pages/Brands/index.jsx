@@ -1,35 +1,24 @@
+import SelectField from "../../components/Inputs/SelectField";
+import TextField from "../../components/Inputs/TextField";
 import Layout from "../../components/Layout";
+import ListTitle from "../../components/Navigation/ListTitle";
+import { brands } from "../../utils/data";
 
 const Dashboard = () => {
   return <Layout>
     <div className="flex flex-wrap -mx-3">
       <div className="flex-none w-full max-w-full px-3">
         <div className="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
-          <div className="flex items-center justify-between p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-            <h6 className="dark:text-white">Lista de marcas</h6>
-            <a href="/marcas/cadastro" title="Adicionar marca" type="button" className="inline-block px-8 py-2 mb-4 font-bold leading-normal text-center text-white uppercase align-middle transition-all ease-in rounded-lg shadow-xs cursor-pointer bg-gradient-to-tl from-blue-500 to-violet-500 text-xs tracking-tight-rem bg-150 bg-x-25 hover:-translate-y-px active:opacity-85 hover:shadow-md">
-              <i className="fas fa-cubes text-white-50"></i>&nbsp;Adicionar
-            </a>
-          </div>
+          <ListTitle heading="Lista de marcas" target="/marcas/cadastro" title="Adicionar marca" icon="fas fa-cubes" />
+          
           <div className="flex-auto px-0 pt-0 pb-2">
             <div className="p-0 overflow-x-auto">
-              <div className="flex items-center justify-between p-3">
-                <div className="flex items-center gap-2 w-auto">
-                  <select  className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none">
-                    <option value={10}>10</option>
-                    <option value={20}>20</option>
-                    <option value={30}>30</option>
-                  </select>
-                  <span>exibir por página</span>
+              <div className="flex items-center p-3">
+                <div className="px-3 shrink-0mb-3">
+                  <SelectField id="count" label="Exibir por página" icon="fas fa-chevron-down" name="count" placeholder="Padrão" />
                 </div>
-
-                <div className="flex items-center">
-                  <div className="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease">
-                    <span className="text-sm ease leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
-                      <i className="fas fa-search"></i>
-                    </span>
-                    <input type="text" className="pl-9 text-sm focus:shadow-primary-outline ease w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 dark:bg-slate-850 dark:text-white bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:transition-shadow" placeholder="Pesquisar..." />
-                  </div>
+                <div className="ml-auto">
+                  <TextField id="search" label="" icon="fas fa-search" title="Pesquisar" name="search" placeholder="Pesquisar" />
                 </div>
               </div>
 
@@ -42,102 +31,28 @@ const Dashboard = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <div className="flex px-2 py-1">
-                        <div className="flex flex-col justify-center">
-                          <h6 className="mb-0 text-sm leading-normal dark:text-white">Hering</h6>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <span className="bg-gradient-to-tl from-emerald-500 to-teal-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Ativo</span>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <a title="Editar" href="/marcas/1" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 mr-2"><i className="fas fa-user-edit text-sky-400"></i></a>
-                      <a title="Excluir" href="/" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80"><i className="fas fa-user-times text-red-400"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <div className="flex px-2 py-1">
-                        <div className="flex flex-col justify-center">
-                          <h6 className="mb-0 text-sm leading-normal dark:text-white">Colcci</h6>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <span className="bg-gradient-to-tl from-emerald-500 to-teal-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Ativo</span>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <a title="Editar" href="/marcas/1" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 mr-2"><i className="fas fa-user-edit text-sky-400"></i></a>
-                      <a title="Excluir" href="/" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80"><i className="fas fa-user-times text-red-400"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <div className="flex px-2 py-1">
-                        <div className="flex flex-col justify-center">
-                          <h6 className="mb-0 text-sm leading-normal dark:text-white">Privalia</h6>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <span className="bg-gradient-to-tl from-emerald-500 to-teal-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Ativo</span>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <a title="Editar" href="/marcas/1" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 mr-2"><i className="fas fa-user-edit text-sky-400"></i></a>
-                      <a title="Excluir" href="/" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80"><i className="fas fa-user-times text-red-400"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <div className="flex px-2 py-1">
-                        <div className="flex flex-col justify-center">
-                          <h6 className="mb-0 text-sm leading-normal dark:text-white">Daffiti</h6>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <span className="bg-gradient-to-tl from-slate-600 to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Inativo</span>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <a title="Editar" href="/marcas/1" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 mr-2"><i className="fas fa-user-edit text-sky-400"></i></a>
-                      <a title="Excluir" href="/" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80"><i className="fas fa-user-times text-red-400"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <div className="flex px-2 py-1">
-                        <div className="flex flex-col justify-center">
-                          <h6 className="mb-0 text-sm leading-normal dark:text-white">Adidas</h6>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <span className="bg-gradient-to-tl from-slate-600 to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Inativo</span>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                      <a title="Editar" href="/marcas/1" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 mr-2"><i className="fas fa-user-edit text-sky-400"></i></a>
-                      <a title="Excluir" href="/" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80"><i className="fas fa-user-times text-red-400"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 align-middle bg-transparent border-b-0 whitespace-nowrap shadow-transparent">
-                      <div className="flex px-2 py-1">
-                        <div className="flex flex-col justify-center">
-                          <h6 className="mb-0 text-sm leading-normal dark:text-white">Nike</h6>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b-0 whitespace-nowrap shadow-transparent">
-                      <span className="bg-gradient-to-tl from-slate-600 to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Inativo</span>
-                    </td>
-                    <td className="p-2 align-middle bg-transparent border-b-0 whitespace-nowrap shadow-transparent">
-                      <a title="Editar" href="/marcas/1" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 mr-2"><i className="fas fa-user-edit text-sky-400"></i></a>
-                      <a title="Excluir" href="/" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80"><i className="fas fa-user-times text-red-400"></i></a>
-                    </td>
-                  </tr>
+                  {
+                    brands?.length > 0 && (
+                      brands.map((item, i) => (
+                      <tr key={i}>
+                        <td className={`${i === brands.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
+                          <div className="flex px-2 py-1">
+                            <div className="flex flex-col justify-center">
+                              <h6 className="mb-0 text-sm leading-normal dark:text-white">{item.name}</h6>
+                            </div>
+                          </div>
+                        </td>
+                        <td className={`${i === brands.length -1 ? "border-b-0" : "border-b"} p-2 text-center align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
+                          <span className={`${item.status ? "from-emerald-500 to-teal-400" : "from-slate-600 to-slate-300"} bg-gradient-to-tl px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white`}>{item.status ? "Ativo" : "Inativo"}</span>
+                        </td>
+                        <td className={`${i === brands.length -1 ? "border-b-0" : "border-b"} p-2 align-middle bg-transparent dark:border-white/40 whitespace-nowrap shadow-transparent`}>
+                          <a title="Editar" href="/marcas/1" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 mr-2"><i className="fas fa-user-edit text-sky-400"></i></a>
+                          <a title="Excluir" href="/" className="text-xs font-semibold leading-tight dark:text-white dark:opacity-80"><i className="fas fa-user-times text-red-400"></i></a>
+                        </td>
+                      </tr>
+                      ))
+                    )
+                  }
                 </tbody>
               </table>
 

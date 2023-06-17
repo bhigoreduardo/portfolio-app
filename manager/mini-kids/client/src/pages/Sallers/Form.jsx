@@ -1,4 +1,9 @@
+import AreaField from "../../components/Inputs/AreaField";
+import DateField from "../../components/Inputs/DateField";
+import SelectField from "../../components/Inputs/SelectField";
+import TextField from "../../components/Inputs/TextField";
 import Layout from "../../components/Layout";
+import FormTitle from "../../components/Navigation/FormTitle";
 
 const Form = () => {
   return (
@@ -6,124 +11,83 @@ const Form = () => {
       <form className="flex flex-wrap -mx-3">
         <div className="w-full max-w-full px-3 shrink-0 md:flex-0">
           <div className="relative flex flex-col min-w-0 break-words bg-white border-0 shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
-            <div className="border-black/12.5 rounded-t-2xl border-b-0 border-solid p-6 pb-0">
-              <div className="flex items-center justify-end gap-4">
-                <a href="/vendedores" className="inline-block px-8 py-2 mb-4 font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-emerald-600 border-0 rounded-lg shadow-md cursor-pointer text-xs tracking-tight-rem hover:shadow-xs hover:-translate-y-px active:opacity-85">Voltar</a>
-                <button type="button" className="inline-block px-8 py-2 mb-4 font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-blue-500 border-0 rounded-lg shadow-md cursor-pointer text-xs tracking-tight-rem hover:shadow-xs hover:-translate-y-px active:opacity-85">Salvar</button>
-              </div>
-            </div>
+            <FormTitle goBack="/vendedores" />
+            
             <div className="flex-auto p-6">
               <p className="leading-normal uppercase dark:text-white dark:opacity-60 text-sm"><i className="fas fa-user-tie"></i>&nbsp;Dados pessoais</p>
-              <div className="flex flex-wrap -mx-3">
-                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="email" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Email</label>
-                    <input placeholder="Informe o email" type="email" name="email" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+              <div className="flex flex-wrap py-3">
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <TextField id="email" label="Email" icon="fas fa-envelope" title="Email" name="email" placeholder="Informe o email" />
                 </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="name" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Nome completo</label>
-                    <input placeholder="Informe o nome completo" type="text" name="name" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <TextField id="name" label="Nome" icon="fas fa-user" title="Nome" name="name" placeholder="Informe o nome" />
                 </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="phone" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Telefone</label>
-                    <input placeholder="Informe o telefone" type="tel" name="phone" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <TextField id="lastName" label="Sobrenome" icon="fas fa-user" title="Sobrenome" name="lastName" placeholder="Informe o sobrenome" />
                 </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="mobile" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Celular</label>
-                    <input placeholder="Informe o celular" type="tel" name="mobile" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <TextField id="phone" label="Telefone" icon="fas fa-phone" title="Telefone" name="phone" placeholder="Informe o telefone" />
                 </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="cpf" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">CPF</label>
-                    <input placeholder="Informe o CPF" type="text" name="cpf" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <TextField id="mobile" label="Celular" icon="fas fa-mobile-alt" title="Celular" name="mobile" placeholder="Informe o celular" />
                 </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="rg" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">RG</label>
-                    <input placeholder="RG" type="text" name="rg" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <TextField id="cpf" label="CPF" icon="fas fa-file" title="CPF" name="cpf" placeholder="Informe o CPF" />
                 </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="birthday" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Data nascimento</label>
-                    <input type="date" name="birthday" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <TextField id="rg" label="RG" icon="fas fa-file-invoice" title="RG" name="rg" placeholder="Informe o RG" />
+                </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <DateField id="birthday" label="Nascimento" icon="fas fa-calendar-alt" title="Nascimento" name="birthday" />
                 </div>
               </div>
               <hr className="h-px mx-0 my-4 bg-transparent border-0 opacity-25 bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent " />
               
+              <p className="leading-normal uppercase dark:text-white dark:opacity-60 text-sm"><i className="fa fa-lock"></i>&nbsp;Informação de segurança</p>
+              <div className="flex flex-wrap py-3">
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <TextField id="password" label="Senha" icon="fas fa-link" title="Senha" name="password" placeholder="Informe a senha" />
+                </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0 mb-3">
+                  <TextField id="repeatPassword" label="Repetir senha" icon="fas fa-shield-alt" title="Repetir senha" name="repeatPassword" placeholder="Repita a senha" />
+                </div>
+              </div>
+              <hr className="h-px mx-0 my-4 bg-transparent border-0 opacity-25 bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent " />
+
               <p className="leading-normal uppercase dark:text-white dark:opacity-60 text-sm"><i className="fas fa-map-marked-alt"></i>&nbsp;Informação de endereço</p>
-              <div className="flex flex-wrap -mx-3">
-                <div className="w-full max-w-full px-3 shrink-0 md:w-full md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="address" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Endereço</label>
-                    <input placeholder="Informe o endereço" type="text" name="address" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+              <div className="flex flex-wrap py-3">
+                <div className="w-full max-w-full px-3 shrink-0 md:w-full md:flex-0 mb-3">
+                  <TextField id="address" label="Endereço" icon="fas fa-address-book" title="Endereço" name="address" placeholder="Informe o endereço" />
                 </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="city" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Cidade</label>
-                    <input placeholder="Informe a cidade" type="text" name="city" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0 mb-3">
+                  <TextField id="city" label="Cidade" icon="fas fa-city" title="Cidade" name="city" placeholder="Informe a cidade" />
                 </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="state" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Estado</label>
-                    <input placeholder="Informe o estado" type="text" name="state" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0 mb-3">
+                  <TextField id="state" label="Estado" icon="fas fa-check-double" title="Estado" name="state" placeholder="Informe o estado" />
                 </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="neighborhood" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Bairro</label>
-                    <input placeholder="Informe o bairro" type="text" name="neighborhood" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0 mb-3">
+                  <TextField id="neighborhood" label="Bairro" icon="fas fa-home" title="Bairro" name="neighborhood" placeholder="Informe o bairro" />
                 </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="cep" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">CEP</label>
-                    <input placeholder="Informe o cep" type="text" name="cep" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0 mb-3">
+                  <TextField id="zipCode" label="CEP" icon="fas fa-qrcode" title="CEP" name="zipCode" placeholder="Informe o CEP" />
                 </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="number" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Número</label>
-                    <input placeholder="Informe o número" type="text" name="number" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0 mb-3">
+                  <TextField id="number" label="Número" icon="fas fa-sort-numeric-up" title="Número" name="number" placeholder="Informe o número" />
                 </div>
-                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="complement" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Complemento</label>
-                    <input placeholder="Informe o complemento" type="text" name="complement" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
-                  </div>
+                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0 mb-3">
+                  <TextField id="complement" label="Complemento" icon="fas fa-sort-amount-up" title="Complemento" name="complement" placeholder="Informe o complemento" />
                 </div>
               </div>
               <hr className="h-px mx-0 my-4 bg-transparent border-0 opacity-25 bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent " />
 
               <p className="leading-normal uppercase dark:text-white dark:opacity-60 text-sm"><i className="fas fa-tools"></i>&nbsp;Alterações</p>
-              <div className="flex flex-wrap -mx-3">
-                <div className="w-full max-w-full px-3 shrink-0 md:w-full md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="status" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Ativo</label>
-                    <select  name="status" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none">
-                      <option value={1}>Ativo</option>
-                      <option value={2}>Inativo</option>
-                    </select>
-                  </div>
+              <div className="flex flex-wrap py-3">
+                <div className="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0 mb-3">
+                  <SelectField id="status" label="Status" icon="fas fa-globe" name="status" placeholder="Sem status"  />
                 </div>
 
                 <div className="w-full max-w-full px-3 shrink-0 md:w-full md:flex-0">
-                  <div className="mb-4">
-                    <label htmlFor="obs" className="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Observações</label>
-                    <textarea placeholder="Informe a observação" name="obs" id="obs" cols="30" rows="10" className="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none"></textarea>
-                  </div>
+                  <AreaField id="obs" label="Observação" icon="fas fa-align-center" title="Observação" name="obs" placeholder="Informe a observação" />
                 </div>
               </div>
             </div>
