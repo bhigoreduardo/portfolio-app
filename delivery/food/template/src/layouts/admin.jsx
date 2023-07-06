@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 
 import AdminNavbar from "@/components/navigation/admin/navbar";
-import Footer from "@/components/navigation/Footer";
+import Footer from "@/components/navigation/footer";
 
 const Admin = () => {
   const { pathname } = useLocation();
