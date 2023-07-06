@@ -1,0 +1,48 @@
+@server=http://localhost:3002
+@endPoint=api/v1/stores
+@storeId=649f3a7618ccf3b02c5ebe68
+
+### PUT /:id
+PUT {{ server }}/{{ endPoint }}/{{ storeId }} HTTP/1.1
+Authorization: DeliveryServer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OWYzYTc2MThjY2YzYjAyYzVlYmU2OCIsImV4cCI6MTY4OTQ1NDA1NC4xNTQsImlhdCI6MTY4ODE1ODA1NH0.8w8FHqxUjHZTN5HcEJtnixW2hV2IMhKlQ8V4qo-aoJs
+content-type: application/json
+
+{
+  "name": "Store",
+  "cnpj": "123456879123",
+  "mobile": "119997899999",
+  "address": {
+    "street": "Fake street",
+    "neighborhood": "Fake Neighborhood",
+    "city": "Fake City",
+    "state": "Fake State",
+    "number": "12",
+    "zipCode": "123465789",
+    "complement": "Fale complement"
+  },
+  "settings": {
+    "payment": ["credit-card", "pix", "cash"],
+    "shipping": [
+      {
+        "type": "pick-up-on-store",
+        "neighborhood": "Fake Neighborhood",
+        "price": 0
+      },
+      {
+        "type": "delivery",
+        "neighborhood": "Fake Neighborhood",
+        "price": 10
+      }
+    ]
+  }
+}
+
+### PUT /:id/change-password
+PUT {{ server }}/{{ endPoint }}/{{ storeId }}/change-password HTTP/1.1
+Authorization: DeliveryServer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OWRiMDZiNjYwNzg1ODRhYzI3NjFmMiIsImV4cCI6MTY4OTM1NTAyOC4xOTcsImlhdCI6MTY4ODA1OTAyOH0.1uwK-XSiWqHyXdgjYO3umt5UmnIr1Uc-dT73VROdlEc
+content-type: application/json
+
+{
+  "currentPassword": "newfake",
+  "newPassword": "fakefake"
+}

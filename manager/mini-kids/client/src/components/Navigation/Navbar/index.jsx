@@ -1,11 +1,13 @@
 import { useContext } from "react";
 
+import { UserContext } from "../../../contexts/UserContext";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 import Breadcrumb from "./Breadcrumb";
-import Notifications from "./Notifications";
+// import Notifications from "./Notifications";
 import Search from "./Search";
 
 const Navbar = () => {
+  const { user } = useContext(UserContext);
   const { fixedNav, setIsMobileSidebar } = useContext(ThemeContext);
 
   return (
@@ -32,13 +34,18 @@ const Navbar = () => {
                   </div>
                 </button>
               </li>
-              <li className="flex items-center px-4">
-                <a href="/configuracoes" className={`${fixedNav ? "dark:text-white" : "text-white"} p-0 text-sm transition-all ease-nav-brand`}>
-                  <i className="cursor-pointer fa fa-cog"></i>
-                </a>
-              </li>
 
-              <Notifications />
+              {
+                user.profile === 2 && (
+                  <li className="flex items-center px-4">
+                    <a href="/configuracoes" className={`${fixedNav ? "dark:text-white" : "text-white"} p-0 text-sm transition-all ease-nav-brand`}>
+                      <i className="cursor-pointer fa fa-cog"></i>
+                    </a>
+                  </li>
+                )
+              }
+
+              {/* <Notifications /> */}
             </ul>
           </div>
         </div>

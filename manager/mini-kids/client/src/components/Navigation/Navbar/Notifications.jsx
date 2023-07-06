@@ -7,7 +7,7 @@ const Notifications = () => {
   const [showNotifications, setShowNotifications] = useState(false);
 
   return (
-    <li className="relative flex items-center pr-2">
+    <li className="relative flex items-center pr-2 z-100">
       <p className="hidden transform-dropdown-show"></p>
       <button onClick={() => setShowNotifications(!showNotifications)} className={`${fixedNav ? "dark:text-white" : "text-white"} block p-0 text-sm transition-all ease-nav-brand`}>
         <i className="cursor-pointer fa fa-bell"></i>

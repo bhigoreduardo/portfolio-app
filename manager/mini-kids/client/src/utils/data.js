@@ -466,26 +466,31 @@ export const colors = [
   {
     id: 1,
     name: "Vermelho",
+    hex: "#ff0000",
     status: true,
   },
   {
   id: 2,
   name: "Amarelo",
+  hex: "#F7C700",
   status: false,
   },
   {
   id: 3,
   name: "Branco",
+  hex: "#fff",
   status: true,
   },
   {
     id: 4,
     name: "Verde",
+    hex: "#454B1B",
     status: true,
   },
   {
     id: 5,
     name: "Rosa",
+    hex: "#ffc0cb",
     status: false,
   }
 ];

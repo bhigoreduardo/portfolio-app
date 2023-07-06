@@ -1,10 +1,13 @@
 import { useContext } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
+import { UserContext } from "../../../contexts/UserContext";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   const { pathname } = useLocation();
+  const { user, logout } = useContext(UserContext);
   const { colorSidebar, isMobileSidebar, setIsMobileSidebar } = useContext(ThemeContext);
 
   return (
@@ -46,23 +49,38 @@ const Sidebar = () => {
             </a>
           </li>
 
-          <li className="mt-0.5 w-full">
-            <a href="/fornecedores" className={`${pathname === "/fornecedores" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
-              <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5">
-                <i className="relative top-0 text-sm leading-normal text-emerald-500 fas fa-user-tag"></i>
-              </div>
-              <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Fornecedores</span>
-            </a>
-          </li>
+          {
+            user.profile === 2 && (
+              <>
+              <li className="mt-0.5 w-full">
+                <a href="/fornecedores" className={`${pathname === "/fornecedores" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
+                  <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5">
+                    <i className="relative top-0 text-sm leading-normal text-emerald-500 fas fa-user-tag"></i>
+                  </div>
+                  <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Fornecedores</span>
+                </a>
+              </li>
 
-          <li className="mt-0.5 w-full">
+              <li className="mt-0.5 w-full">
+                <a href="/usuarios" className={`${pathname === "/usuarios" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
+                  <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                    <i className="relative top-0 text-sm leading-normal text-red-600 fas fa-users"></i>
+                  </div>
+                  <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Usuários</span>
+                </a>
+              </li>
+              </>
+            )
+          }
+
+          {/* <li className="mt-0.5 w-full">
             <a href="/vendedores" className={`${pathname === "/vendedores" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
               <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                 <i className="relative top-0 text-sm leading-normal text-cyan-500 fas fa-user-friends"></i>
               </div>
               <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Vendedores</span>
             </a>
-          </li>
+          </li> */}
 
           <li className="w-full mt-4">
             <h6 className="pl-6 ml-2 text-xs font-bold leading-tight uppercase dark:text-white opacity-60">
@@ -130,65 +148,71 @@ const Sidebar = () => {
             </a>
           </li>
 
-          <li className="mt-0.5 w-full">
-            <a href="/contas-pagar" className={`${pathname === "/contas-pagar" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
-              <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                <i className="relative top-0 text-sm leading-normal text-sky-600 fas fa-book"></i>
-              </div>
-              <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Contas à pagar</span>
-            </a>
-          </li>
+          {
+            user.profile === 2 && (
+              <>
+              <li className="mt-0.5 w-full">
+                <a href="/contas-pagar" className={`${pathname === "/contas-pagar" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
+                  <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                    <i className="relative top-0 text-sm leading-normal text-sky-600 fas fa-book"></i>
+                  </div>
+                  <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Contas à pagar</span>
+                </a>
+              </li>
 
-          <li className="mt-0.5 w-full">
-            <a href="/contas-receber" className={`${pathname === "/contas-receber" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
-              <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                <i className="relative top-0 text-sm leading-normal text-violet-600 fas fa-hand-holding-usd"></i>
-              </div>
-              <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Contas à receber</span>
-            </a>
-          </li>
+              <li className="mt-0.5 w-full">
+                <a href="/contas-receber" className={`${pathname === "/contas-receber" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
+                  <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                    <i className="relative top-0 text-sm leading-normal text-violet-600 fas fa-hand-holding-usd"></i>
+                  </div>
+                  <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Contas à receber</span>
+                </a>
+              </li>
 
-          <li className="mt-0.5 w-full">
-            <a href="/formas-pagamento" className={`${pathname === "/formas-pagamento" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
-              <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                <i className="relative top-0 text-sm leading-normal text-zinc-600 fas fa-credit-card"></i>
-              </div>
-              <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Formas de pagamento</span>
-            </a>
-          </li>
+              <li className="mt-0.5 w-full">
+                <a href="/formas-pagamento" className={`${pathname === "/formas-pagamento" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
+                  <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                    <i className="relative top-0 text-sm leading-normal text-zinc-600 fas fa-credit-card"></i>
+                  </div>
+                  <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Formas de pagamento</span>
+                </a>
+              </li>
 
-          <li className="w-full mt-4">
-            <h6 className="pl-6 ml-2 text-xs font-bold leading-tight uppercase dark:text-white opacity-60">
-              Relatórios
-            </h6>
-          </li>
+              {/* <li className="w-full mt-4">
+                <h6 className="pl-6 ml-2 text-xs font-bold leading-tight uppercase dark:text-white opacity-60">
+                  Relatórios
+                </h6>
+              </li>
 
-          <li className="mt-0.5 w-full">
-            <a href="/relatorios-contas-pagar" className={`${pathname === "/relatorios-contas-pagar" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
-              <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                <i className="relative top-0 text-sm leading-normal text-rose-600 fas fa-book"></i>
-              </div>
-              <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Contas à pagar</span>
-            </a>
-          </li>
+              <li className="mt-0.5 w-full">
+                <a href="/relatorios-contas-pagar" className={`${pathname === "/relatorios-contas-pagar" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
+                  <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                    <i className="relative top-0 text-sm leading-normal text-rose-600 fas fa-book"></i>
+                  </div>
+                  <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Contas à pagar</span>
+                </a>
+              </li>
 
-          <li className="mt-0.5 w-full">
-            <a href="/relatorios-contas-receber" className={`${pathname === "/relatorios-contas-receber" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
-              <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                <i className="relative top-0 text-sm leading-normal text-indigo-600 fas fa-hand-holding-usd"></i>
-              </div>
-              <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Contas à receber</span>
-            </a>
-          </li>
+              <li className="mt-0.5 w-full">
+                <a href="/relatorios-contas-receber" className={`${pathname === "/relatorios-contas-receber" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
+                  <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                    <i className="relative top-0 text-sm leading-normal text-indigo-600 fas fa-hand-holding-usd"></i>
+                  </div>
+                  <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Contas à receber</span>
+                </a>
+              </li>
 
-          <li className="mt-0.5 w-full">
-            <a href="/relatorios-vendas" className={`${pathname === "/relatorios-vendas" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
-              <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                <i className="relative top-0 text-sm leading-normal text-teal-600 fas fa-shopping-cart"></i>
-              </div>
-              <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Vendas</span>
-            </a>
-          </li>
+              <li className="mt-0.5 w-full">
+                <a href="/relatorios-vendas" className={`${pathname === "/relatorios-vendas" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
+                  <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                    <i className="relative top-0 text-sm leading-normal text-teal-600 fas fa-shopping-cart"></i>
+                  </div>
+                  <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Vendas</span>
+                </a>
+              </li> */}
+              </>
+            )
+          }
 
           <li className="w-full mt-4">
             <h6 className="pl-6 ml-2 text-xs font-bold leading-tight uppercase dark:text-white opacity-60">
@@ -205,38 +229,33 @@ const Sidebar = () => {
             </a>
           </li>
 
-          <li className="mt-0.5 w-full">
-            <a href="/usuarios" className={`${pathname === "/usuarios" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
-              <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                <i className="relative top-0 text-sm leading-normal text-red-600 fas fa-users"></i>
-              </div>
-              <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Usuários</span>
-            </a>
-          </li>
+          {
+            user.profile === 2 && (
+              <li className="mt-0.5 w-full">
+                <a href="/configuracoes" className={`${pathname === "/configuracoes" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
+                  <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                    <i className="relative top-0 text-sm leading-normal text-stone-600 fas fa-cogs"></i>
+                  </div>
+                  <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Configurações</span>
+                </a>
+              </li>
+            )
+          }
 
           <li className="mt-0.5 w-full">
-            <a href="/configuracoes" className={`${pathname === "/configuracoes" && `bg-${colorSidebar}-500/${colorSidebar === "blue" ? "13" : "30"}`} rounded-lg dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors`}>
-              <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                <i className="relative top-0 text-sm leading-normal text-stone-600 fas fa-cogs"></i>
-              </div>
-              <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Configurações</span>
-            </a>
-          </li>
-
-          <li className="mt-0.5 w-full">
-            <a href="/" className=" dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors">
+            <button type="button" onClick={() => { logout(); navigate("/"); }} className=" dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors">
               <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                 <i className="relative top-0 text-sm leading-normal text-red-600 fas fa-sign-out-alt"></i>
               </div>
               <span className="ml-1 duration-300 opacity-100 pointer-events-none ease">Sair</span>
-            </a>
+            </button>
           </li>
         </ul>
       </div>
 
-      <div className="mx-4">
-        {/* <!-- load phantom colors for card after: --> */}
-        {/* <p className="invisible hidden text-gray-800 text-red-500 text-red-600 text-blue-500 bg-gray-500/30 bg-cyan-500/30 bg-emerald-500/30 bg-orange-500/30 bg-red-500/30 after:bg-gradient-to-tl after:from-zinc-800 after:to-zinc-700 dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850 after:from-blue-700 after:to-cyan-500 after:from-orange-500 after:to-yellow-500 after:from-green-600 after:to-lime-400 after:from-red-600 after:to-orange-600 after:from-slate-600 after:to-slate-300 text-emerald-500 text-cyan-500 text-slate-400"></p> */}
+      {/* <div className="mx-4">
+        <!-- load phantom colors for card after: -->
+        <p className="invisible hidden text-gray-800 text-red-500 text-red-600 text-blue-500 bg-gray-500/30 bg-cyan-500/30 bg-emerald-500/30 bg-orange-500/30 bg-red-500/30 after:bg-gradient-to-tl after:from-zinc-800 after:to-zinc-700 dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850 after:from-blue-700 after:to-cyan-500 after:from-orange-500 after:to-yellow-500 after:from-green-600 after:to-lime-400 after:from-red-600 after:to-orange-600 after:from-slate-600 after:to-slate-300 text-emerald-500 text-cyan-500 text-slate-400"></p>
         <div className="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border">
           <img
             className="w-1/2 mx-auto"
@@ -254,13 +273,13 @@ const Sidebar = () => {
             </div>
           </div>
         </div>
-        <a href="/" className="inline-block w-full px-8 py-2 mb-4 text-xs font-bold leading-normal text-center text-white capitalize transition-all ease-in rounded-lg shadow-md bg-slate-700 bg-150 hover:shadow-xs hover:-translate-y-px">
+        <a href="mailto:bhigoreduardo@gmail.com" className="inline-block w-full px-8 py-2 mb-4 text-xs font-bold leading-normal text-center text-white capitalize transition-all ease-in rounded-lg shadow-md bg-slate-700 bg-150 hover:shadow-xs hover:-translate-y-px">
           Email
         </a>
-        <a href="/" className="inline-block w-full px-8 py-2 text-xs font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-blue-500 border-0 rounded-lg shadow-md select-none bg-150 bg-x-25 hover:shadow-xs hover:-translate-y-px">
+        <a href="tel:+5527998311970" className="inline-block w-full px-8 py-2 text-xs font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-blue-500 border-0 rounded-lg shadow-md select-none bg-150 bg-x-25 hover:shadow-xs hover:-translate-y-px">
           WthasApp
         </a>
-      </div>
+      </div> */}
     </aside>
   );
 };

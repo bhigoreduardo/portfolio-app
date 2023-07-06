@@ -1,0 +1,35 @@
+@server=http://localhost:3002
+@endPoint=api/v1/customers
+@customerId=649db38b77fafcf4a58c44ba
+@storeId=649db06b66078584ac2761f2
+
+### PUT /:id
+PUT {{ server }}/{{ endPoint }}/{{ customerId }} HTTP/1.1
+Authorization: DeliveryServer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OWRiMzhiNzdmYWZjZjRhNThjNDRiYSIsImV4cCI6MTY4OTM1NTkwNi41NTcsImlhdCI6MTY4ODA1OTkwNn0.ZZ3l470MTkiZnVM1krrRkH5weXGUn-de30_Zuov5xqQ
+content-type: application/json
+
+{
+  "store": "649f3a7618ccf3b02c5ebe68",
+  "name": "Customer",
+  "mobile": "119997899999",
+  "address": {
+    "street": "Fake street",
+    "neighborhood": "Fake Neighborhood",
+    "city": "Fake City",
+    "state": "Fake State",
+    "number": "12",
+    "zipCode": "123465789",
+    "complement": "Fale complement"
+  }
+}
+
+### PUT /:id/change-password
+PUT {{ server }}/{{ endPoint }}/{{ customerId }}/change-password HTTP/1.1
+Authorization: DeliveryServer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OWRiMzhiNzdmYWZjZjRhNThjNDRiYSIsImV4cCI6MTY4OTM1NTkwNi41NTcsImlhdCI6MTY4ODA1OTkwNn0.ZZ3l470MTkiZnVM1krrRkH5weXGUn-de30_Zuov5xqQ
+content-type: application/json
+
+{
+  "store": "649db06b66078584ac2761f2",
+  "currentPassword": "newfake",
+  "newPassword": "fakefake"
+}
