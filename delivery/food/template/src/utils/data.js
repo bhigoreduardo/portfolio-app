@@ -5,6 +5,8 @@ export const category = {
   products: 70,
 };
 
+export const categories = ["Lanches", "Pizzas", "Bebidas", "Sorvetes", "Açaí"];
+
 export const product = {
   _id: "lkad128djaskdljsads",
   name: "X-Bacon",
@@ -16,6 +18,404 @@ export const product = {
   reviewsAvg: 4.38,
   description: "PÃO, ALFACE, CEBOLA, BACON, BIFE, MAIONESE",
 }
+
+export const products = [
+  {
+    _id: "lkad128djaskdljsads",
+    name: "X-Bacon",
+    category: "Lanches",
+    price: 20.99,
+    promotion: 16.99,
+    image: "https://cdn.panelinha.com.br/receita/1562096945621-receita.jpg",
+    status: "Ativo",
+    reviewsAvg: 4.38,
+    description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages",
+    additional: [
+      {
+        type: "check-group",
+        name: "Molhos Adicionais",
+        limit: 2,
+        option: [
+          {
+            name: "Sachê de Molho Romã",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          },
+          {
+            name: "Saquinho de Creme de Alho",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          }
+        ]
+      },
+      {
+        type: "radio-group",
+        name: "Temperos Adicionais",
+        limit: 1,
+        option: [
+          {
+            name: "Sachê de Molho Romã",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          },
+          {
+            name: "Saquinho de Creme de Alho",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          }
+        ]
+      },
+      {
+        type: "check-group",
+        name: "Escolha os refrigerantes do seu combo",
+        description: "Refrigerante",
+        limit: 1,
+        obligatory: 1,
+        option: [
+          {
+            name: "Coca-cola",
+            price: 5.99
+          },
+          {
+            name: "Guaraná",
+            price: 5.99
+          }
+        ]
+      },
+      {
+        type: "number-group",
+        name: "Adicionais dentro SHAWARMA",
+        limit: 4,
+        option: [
+          {
+            name: "Mussarela",
+            price: 5.99
+          },
+          {
+            name: "Rodelas de Cebolas",
+            price: 6.99
+          }
+        ]
+      }
+    ]
+  },
+  {
+    _id: "lkad128djaskdljsads",
+    name: "Pizza Média 8 Pedaços",
+    category: "Pizzas",
+    price: 20.99,
+    promotion: 16.99,
+    image: "https://s5.static.brasilescola.uol.com.br/be/2023/03/pizza-italiana-tradicional-com-tomates-e-manjericao-em-alusao-a-historia-da-pizza.jpg",
+    status: "Ativo",
+    reviewsAvg: 4.38,
+    description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages",
+    additional: [
+      {
+        type: "check-group",
+        name: "Molhos Adicionais",
+        limit: 2,
+        option: [
+          {
+            name: "Sachê de Molho Romã",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          },
+          {
+            name: "Saquinho de Creme de Alho",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          }
+        ]
+      },
+      {
+        type: "radio-group",
+        name: "Temperos Adicionais",
+        limit: 1,
+        option: [
+          {
+            name: "Sachê de Molho Romã",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          },
+          {
+            name: "Saquinho de Creme de Alho",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          }
+        ]
+      },
+      {
+        type: "check-group",
+        name: "Escolha os refrigerantes do seu combo",
+        description: "Refrigerante",
+        limit: 1,
+        obligatory: 1,
+        option: [
+          {
+            name: "Coca-cola",
+            price: 5.99
+          },
+          {
+            name: "Guaraná",
+            price: 5.99
+          }
+        ]
+      },
+      {
+        type: "number-group",
+        name: "Adicionais dentro SHAWARMA",
+        limit: 4,
+        option: [
+          {
+            name: "Mussarela",
+            price: 5.99
+          },
+          {
+            name: "Rodelas de Cebolas",
+            price: 6.99
+          }
+        ]
+      }
+    ]
+  },
+  {
+    _id: "lkad128djaskdljsads",
+    name: "Coca-Cola 2Lts",
+    category: "Bebidas",
+    price: 20.99,
+    promotion: 16.99,
+    image: "https://redemachado.com.br/arquivos/405568.jpg",
+    status: "Ativo",
+    reviewsAvg: 4.38,
+    description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages",
+    additional: [
+      {
+        type: "check-group",
+        name: "Molhos Adicionais",
+        limit: 2,
+        option: [
+          {
+            name: "Sachê de Molho Romã",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          },
+          {
+            name: "Saquinho de Creme de Alho",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          }
+        ]
+      },
+      {
+        type: "radio-group",
+        name: "Temperos Adicionais",
+        limit: 1,
+        option: [
+          {
+            name: "Sachê de Molho Romã",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          },
+          {
+            name: "Saquinho de Creme de Alho",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          }
+        ]
+      },
+      {
+        type: "check-group",
+        name: "Escolha os refrigerantes do seu combo",
+        description: "Refrigerante",
+        limit: 1,
+        obligatory: 1,
+        option: [
+          {
+            name: "Coca-cola",
+            price: 5.99
+          },
+          {
+            name: "Guaraná",
+            price: 5.99
+          }
+        ]
+      },
+      {
+        type: "number-group",
+        name: "Adicionais dentro SHAWARMA",
+        limit: 4,
+        option: [
+          {
+            name: "Mussarela",
+            price: 5.99
+          },
+          {
+            name: "Rodelas de Cebolas",
+            price: 6.99
+          }
+        ]
+      }
+    ]
+  },
+  {
+    _id: "lkad128djaskdljsads",
+    name: "Sorvete Pote 2Lts",
+    category: "Sorvetes",
+    price: 20.99,
+    promotion: 16.99,
+    image: "https://revistasaboresdosul.com.br/wp-content/uploads/2014/12/9-sorvetes-para-se-refrescar-no-verao.jpg",
+    status: "Ativo",
+    reviewsAvg: 4.38,
+    description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages",
+    additional: [
+      {
+        type: "check-group",
+        name: "Molhos Adicionais",
+        limit: 2,
+        option: [
+          {
+            name: "Sachê de Molho Romã",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          },
+          {
+            name: "Saquinho de Creme de Alho",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          }
+        ]
+      },
+      {
+        type: "radio-group",
+        name: "Temperos Adicionais",
+        limit: 1,
+        option: [
+          {
+            name: "Sachê de Molho Romã",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          },
+          {
+            name: "Saquinho de Creme de Alho",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          }
+        ]
+      },
+      {
+        type: "check-group",
+        name: "Escolha os refrigerantes do seu combo",
+        description: "Refrigerante",
+        limit: 1,
+        obligatory: 1,
+        option: [
+          {
+            name: "Coca-cola",
+            price: 5.99
+          },
+          {
+            name: "Guaraná",
+            price: 5.99
+          }
+        ]
+      },
+      {
+        type: "number-group",
+        name: "Adicionais dentro SHAWARMA",
+        limit: 4,
+        option: [
+          {
+            name: "Mussarela",
+            price: 5.99
+          },
+          {
+            name: "Rodelas de Cebolas",
+            price: 6.99
+          }
+        ]
+      }
+    ]
+  },
+  {
+    _id: "lkad128djaskdljsads",
+    name: "Açaí Copo 700ml",
+    category: "Açaí",
+    price: 20.99,
+    promotion: 16.99,
+    image: "https://www.abf.com.br/wp-content/uploads/2023/02/700x400.png",
+    status: "Ativo",
+    reviewsAvg: 4.38,
+    description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages",
+    additional: [
+      {
+        type: "check-group",
+        name: "Molhos Adicionais",
+        limit: 2,
+        option: [
+          {
+            name: "Sachê de Molho Romã",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          },
+          {
+            name: "Saquinho de Creme de Alho",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          }
+        ]
+      },
+      {
+        type: "radio-group",
+        name: "Temperos Adicionais",
+        limit: 1,
+        option: [
+          {
+            name: "Sachê de Molho Romã",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          },
+          {
+            name: "Saquinho de Creme de Alho",
+            description: "Delicioso molho romã para enfatizar o sabor de seu prato",
+            price: 5.99
+          }
+        ]
+      },
+      {
+        type: "check-group",
+        name: "Escolha os refrigerantes do seu combo",
+        description: "Refrigerante",
+        limit: 1,
+        obligatory: 1,
+        option: [
+          {
+            name: "Coca-cola",
+            price: 5.99
+          },
+          {
+            name: "Guaraná",
+            price: 5.99
+          }
+        ]
+      },
+      {
+        type: "number-group",
+        name: "Adicionais dentro SHAWARMA",
+        limit: 4,
+        option: [
+          {
+            name: "Mussarela",
+            price: 5.99
+          },
+          {
+            name: "Rodelas de Cebolas",
+            price: 6.99
+          }
+        ]
+      }
+    ]
+  },
+]
 
 export const customer = {
   _id: "lkad128djaskdljsads",
@@ -111,6 +511,85 @@ export const order = {
   // status: { type: "pending", dateTime: new Date().toLocaleDateString("pt-BR", optionsLocaleDate) },
   payload: "Retirar a cebola do lanche",
 }
+
+export const orders = [
+  {
+    id: "lkad128djaskdljsads",
+    customer: {
+      name: "John Doe",
+      mobile: "(11) 9 9999-9999",
+      address: {
+        street: "Rua do John Doe",
+        neighborhood: "Bairro John",
+        number: "123",
+        city: "Cidade John",
+        state: "RJ",
+        zipCode: "123456-789",
+        complement: "Perto da sorveteria"
+      }
+    },
+    cart: [
+      {
+        product: {
+          _id: "lkad128djaskdljsads",
+          name: "X-Bacon",
+          image: "https://cdn.panelinha.com.br/receita/1562096945621-receita.jpg"
+        },
+        quantity: 2,
+        price: 12.99
+      },
+      {
+        product: {
+          _id: "lkad128djaskdljsads",
+          name: "X-Total",
+          image: "https://cdn.panelinha.com.br/receita/1562096945621-receita.jpg"
+        },
+        quantity: 5,
+        price: 19.99
+      },
+      {
+        product: {
+          _id: "lkad128djaskdljsads",
+          name: "X-Total",
+          image: "https://cdn.panelinha.com.br/receita/1562096945621-receita.jpg"
+        },
+        quantity: 5,
+        price: 19.99
+      },
+      {
+        product: {
+          _id: "lkad128djaskdljsads",
+          name: "X-Total",
+          image: "https://cdn.panelinha.com.br/receita/1562096945621-receita.jpg"
+        },
+        quantity: 5,
+        price: 19.99
+      },
+      {
+        product: {
+          _id: "lkad128djaskdljsads",
+          name: "X-Total",
+          image: "https://cdn.panelinha.com.br/receita/1562096945621-receita.jpg"
+        },
+        quantity: 5,
+        price: 19.99
+      }
+    ],
+    shipping: {
+      method: "Entrega",
+      neighborhood: "Bairro do John",
+      price: 2.99
+    },
+    payment: {
+      method: "Dinheiro - A VISTA",
+      amount: 20.00,
+      moneyChange: 50,
+      status: "Pendente"
+    },
+    status: { type: "pending", dateTime: new Date().toLocaleTimeString() },
+    payload: "Retirar a cebola do lanche"
+  }
+];
 
 export const bartending = {
   _id: "lkad128djaskdljsads",
