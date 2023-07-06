@@ -1,0 +1,40 @@
+@server=http://localhost:3002
+@endPoint=api/v1/categories
+@categoryId=649f7fda878bdf674ac0c1ce
+
+### POST /
+POST {{ server }}/{{ endPoint }}/ HTTP/1.1
+Authorization: DeliveryServer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OWY3ZjljYzdkYzIxNjdkYzNhNmMxYSIsImV4cCI6MTY4OTQ3MDUyOC40NzcsImlhdCI6MTY4ODE3NDUyOH0.Nw_377-yNAJ8WfFHBgQWh4OB0KjEkm-Zrh-oc-Qf2B8
+content-type: application/json
+
+{
+  "store": "649f7f9cc7dc2167dc3a6c1a",
+  "name": "Lanches",
+  "status": true
+}
+
+### PUT /:id
+PUT {{ server }}/{{ endPoint }}/{{ categoryId }} HTTP/1.1
+Authorization: DeliveryServer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OWY3ZjljYzdkYzIxNjdkYzNhNmMxYSIsImV4cCI6MTY4OTQ3MDUyOC40NzcsImlhdCI6MTY4ODE3NDUyOH0.Nw_377-yNAJ8WfFHBgQWh4OB0KjEkm-Zrh-oc-Qf2B8
+content-type: application/json
+
+{
+  "store": "649f7f9cc7dc2167dc3a6c1a",
+  "name": "Pizza",
+  "status": true
+}
+
+### DELETE /:id
+DELETE {{ server }}/{{ endPoint }}/{{ categoryId }} HTTP/1.1
+Authorization: DeliveryServer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OWY3ZjljYzdkYzIxNjdkYzNhNmMxYSIsImV4cCI6MTY4OTQ3MDUyOC40NzcsImlhdCI6MTY4ODE3NDUyOH0.Nw_377-yNAJ8WfFHBgQWh4OB0KjEkm-Zrh-oc-Qf2B8
+content-type: application/json
+
+{
+  "store": "649f7f9cc7dc2167dc3a6c1a"
+}
+
+### GET /:id
+GET {{ server }}/{{ endPoint }}/{{ categoryId }} HTTP/1.1
+
+### GET /
+GET {{ server }}/{{ endPoint }} HTTP/1.1

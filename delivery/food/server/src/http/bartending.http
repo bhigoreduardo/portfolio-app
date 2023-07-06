@@ -1,0 +1,36 @@
+@server=http://localhost:3002
+@endPoint=api/v1/bartendings
+@bartendingId=64a01d911e3d8a1f8be3b522
+
+### POST /
+POST {{ server }}/{{ endPoint }}/ HTTP/1.1
+Authorization: DeliveryServer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OWY3ZjljYzdkYzIxNjdkYzNhNmMxYSIsImV4cCI6MTY4OTQ3MzAzMS44OTQsImlhdCI6MTY4ODE3NzAzMX0.zVKnGBKEdFllVH7L4EIXiJ46DUaTkSTYEtsn6Z6NXac
+content-type: application/json
+
+{
+  "store": "649f7f9cc7dc2167dc3a6c1a",
+  "name": "Mesa 1"
+}
+
+### PATCH /:id/cart
+PATCH {{ server }}/{{ endPoint }}/{{ bartendingId }}/cart HTTP/1.1
+Authorization: DeliveryServer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OWY3ZjljYzdkYzIxNjdkYzNhNmMxYSIsImV4cCI6MTY4OTQ3MzAzMS44OTQsImlhdCI6MTY4ODE3NzAzMX0.zVKnGBKEdFllVH7L4EIXiJ46DUaTkSTYEtsn6Z6NXac
+content-type: application/json
+
+{
+  "store": "649f7f9cc7dc2167dc3a6c1a",
+  "cart": [
+    { "product": "649f8013878bdf674ac0c1d5", "quantity": 4 },
+    { "product": "649f8008878bdf674ac0c1d1", "quantity": 2 }
+  ]
+}
+
+### PATCH /:id/payment
+PATCH {{ server }}/{{ endPoint }}/{{ bartendingId }}/payment HTTP/1.1
+Authorization: DeliveryServer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OWY3ZjljYzdkYzIxNjdkYzNhNmMxYSIsImV4cCI6MTY4OTQ3MzAzMS44OTQsImlhdCI6MTY4ODE3NzAzMX0.zVKnGBKEdFllVH7L4EIXiJ46DUaTkSTYEtsn6Z6NXac
+content-type: application/json
+
+{
+  "store": "649f7f9cc7dc2167dc3a6c1a",
+  "payment": "credit-card"
+}
