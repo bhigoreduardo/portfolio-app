@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import api from "@/libs/api";
+import { categories } from "@/utils/data";
 import Button from "@/components/ui/button";
 import Cart from "@/components/ui/cart";
 import Checkout from "@/components/ui/checkout";
@@ -9,19 +9,10 @@ import Checkout from "@/components/ui/checkout";
 const WebNavbar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const [categories, setCategories] = useState([]);
   const spliPath = pathname.split("/")[3];
   const [showCart, setShowCart] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
-
-  const getCategories = async () => {
-    const { data } = await api.get(`/categories`);
-    setCategories(data);
-  }
-  useEffect(() => {
-    getCategories();
-  }, [])
 
   return (
     <div className="relative px-4 sm:px-6 lg:px-8 flex sm:h-16 h-auto flex-col sm:flex-row gap-3 py-4 items-center border-b dark:border-slate-800">
@@ -39,9 +30,15 @@ const WebNavbar = () => {
       </nav>
 
       <div className="ml-auto flex items-center gap-x-4">
-      <button onClick={() => setOpenMobileMenu(!openMobileMenu)} className="md:hidden block text-sm font-semibold h-8 w-8 rounded-md text-slate-500 transition-all">
-        {openMobileMenu ? (<i className="fas fa-times"></i>) : (<i className="fa fa-bars"></i>)}
-      </button>
+        <button onClick={() => setOpenMobileMenu(!openMobileMenu)} className="md:hidden block text-sm font-semibold h-8 w-8 rounded-md text-slate-500 transition-all">
+          {openMobileMenu ? (<i className="fas fa-times"></i>) : (<i className="fa fa-bars"></i>)}
+        </button>
+        <Button type="button" className="bg-green-500 text-white h-10">
+          Loja Aberta
+        </Button>
+        {/* <Button type="button" className="bg-red-500 text-white h-10">
+          Loja Fechada
+        </Button> */}
         <Button type="button" onClick={() => setShowCart(true)} className="bg-slate-900 dark:bg-slate-600 h-10">
           <i className="fa fa-shopping-cart text-white text-sm"></i>
           <span className="ml-2 text-sm font-medium text-white">5</span>

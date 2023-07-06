@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useFormik } from "formik";
 import { useParams } from "react-router-dom";
 import * as yup from "yup";
 import { toast } from "react-toastify";
 
-import api from "@/libs/api";
-import { customer } from "@/utils/data";
+import { customer, products } from "@/utils/data";
 import { neighborhood } from "@/utils/data";
 import { shippingEnum, paymentEnum } from "@/types/order";
 import { ProdutListModal } from "@/components/ui/modals/modal-product-list";
@@ -69,15 +68,6 @@ const FormOrder = ({ loading, setLoading, toastMessage, action }) => {
       setLoading(false);
     }
   }
-  const [products, setProducts] = useState([]);
-  
-  const getProducts = async () => {
-    const { data } = await api.get(`/products`);
-    setProducts(data);
-  }
-  useEffect(() => {
-    getProducts();
-  }, []);
 
   return (
     <>

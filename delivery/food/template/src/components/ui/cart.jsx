@@ -1,21 +1,10 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import api from "@/libs/api";
+import { products } from "@/utils/data";
 import CartItem from "./cart-item";
 
 const Cart = ({ setShowCart, setShowCheckout }) => {
-  const [products, setProducts] = useState([]);
-
-  const getProducts = async () => {
-    const { data } = await api.get(`/products`);
-    setProducts(data);
-  }
-  useEffect(() => {
-    getProducts();
-  }, []);
-
   return (
     <section className="fixed top-0 left-0 flex justify-end bg-[#00000080] w-full h-full z-50">
       <article className="relative flex flex-col bg-[#fff] text-[#000] min-w-[250px] max-w-[300px]">

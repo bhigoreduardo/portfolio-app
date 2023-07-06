@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
 import { faker } from '@faker-js/faker';
 
-import api from "@/libs/api";
+import { orders } from "@/utils/data";
 import CardInfo from "@/components/ui/cards/card-info";
 import CardTitle from "@/components/ui/cards/card-title";
 import NoResults from "@/components/ui/no-results";
@@ -11,15 +10,6 @@ import ChartLine from "@/components/charts/line";
 const labels = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'];
 
 const Dashboard = () => {
-  const [orders, setOrders] = useState([]);
-  const getOrders = async () => {
-    const { data } = await api.get(`/orders`);
-    setOrders(new Array(5).fill(...data));
-  }
-  useEffect(() => {
-    getOrders();
-  }, []);
-
   return (
     <>
       {/* FIRST ROW */}
@@ -47,7 +37,7 @@ const Dashboard = () => {
             : (
               <div className="w-full overflow-x-auto scrollbar-none">
                 <div className="min-w-[680px]">
-                  {orders.map((item, i) => (
+                  {new Array(5).fill(...orders).map((item, i) => (
                     <CardOrderDetail key={i} {...item} />
                   ))}
                 </div>

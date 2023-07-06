@@ -1,19 +1,7 @@
-import { useEffect, useState } from "react";
-
-import api from "@/libs/api";
+import { products } from "@/utils/data";
 import CardProductList from "@/components/ui/cards/card-product-list";
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
-  
-  const getProducts = async () => {
-    const { data } = await api.get(`/products`);
-    setProducts(data);
-  }
-  useEffect(() => {
-    getProducts();
-  }, []);
-
   return (
     <>
       {/* BILLBOARD */}

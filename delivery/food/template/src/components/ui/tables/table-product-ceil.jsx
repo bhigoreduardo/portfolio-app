@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import { toast } from "react-toastify";
 
-import api from "@/libs/api";
+import { products } from "@/utils/data";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,15 +18,6 @@ import Button from "../button";
 export const TableProductCell = ({ data }) => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  const [products, setProducts] = useState([]);
-  
-  const getProducts = async () => {
-    const { data } = await api.get(`/products`);
-    setProducts(data);
-  }
-  useEffect(() => {
-    getProducts();
-  }, []);
 
   return (
     <>
