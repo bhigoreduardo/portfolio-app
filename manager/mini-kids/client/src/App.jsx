@@ -25,6 +25,7 @@ import Products from "./pages/Products";
 import ProductsForm from "./pages/Products/Form";
 import Sales from "./pages/Sales";
 import SalesForm from "./pages/Sales/Form";
+import Print from "./pages/Sales/Print";
 import Payments from "./pages/Payments";
 import PaymentsForm from "./pages/Payments/Form";
 import Receipts from "./pages/Receipts";
@@ -55,19 +56,19 @@ const App = () => {
           <Route path="/painel" element={<Dashboard />} />
           <Route path="/clientes" element={<Customers />} />
           <Route path="/clientes/cadastro" element={<CustomersForm />} />
-          <Route path="/clientes/1" element={<CustomersForm />} />
+          <Route path="/clientes/:id" element={<CustomersForm />} />
           <Route path="/fornecedores" element={<Supplies />} />
           <Route path="/fornecedores/cadastro" element={<SuppliesForm />} />
-          <Route path="/fornecedores/1" element={<SuppliesForm />} />
+          <Route path="/fornecedores/:id" element={<SuppliesForm />} />
           <Route path="/vendedores" element={<Sallers />} />
           <Route path="/vendedores/cadastro" element={<SallersForm />} />
-          <Route path="/vendedores/1" element={<SallersForm />} />
+          <Route path="/vendedores/:id" element={<SallersForm />} />
           <Route path="/marcas" element={<Brands />} />
           <Route path="/marcas/cadastro" element={<BrandsForm />} />
-          <Route path="/marcas/1" element={<BrandsForm />} />
+          <Route path="/marcas/:id" element={<BrandsForm />} />
           <Route path="/categorias" element={<Categories />} />
           <Route path="/categorias/cadastro" element={<CategoriesForm />} />
-          <Route path="/categorias/1" element={<CategoriesForm />} />
+          <Route path="/categorias/:id" element={<CategoriesForm />} />
           <Route path="/cores" element={<Colors />} />
           <Route path="/cores/cadastro" element={<ColorsForm />} />
           <Route path="/cores/:id" element={<ColorsForm />} />
@@ -76,19 +77,20 @@ const App = () => {
           <Route path="/tamanhos/:id" element={<SizesForm />} />
           <Route path="/produtos" element={<Products />} />
           <Route path="/produtos/cadastro" element={<ProductsForm />} />
-          <Route path="/produtos/1" element={<ProductsForm />} />
+          <Route path="/produtos/:id" element={<ProductsForm />} />
           <Route path="/vendas" element={<Sales />} />
           <Route path="/vendas/cadastro" element={<SalesForm />} />
-          <Route path="/vendas/1" element={<SalesForm />} />
+          <Route path="/vendas/:id" element={<SalesForm />} />
+          <Route path="/vendas/imprimir/:id" element={<Print />} />
           <Route path="/contas-pagar" element={<Payments />} />
           <Route path="/contas-pagar/cadastro" element={<PaymentsForm />} />
-          <Route path="/contas-pagar/1" element={<PaymentsForm />} />
+          <Route path="/contas-pagar/:id" element={<PaymentsForm />} />
           <Route path="/contas-receber" element={<Receipts />} />
           <Route path="/contas-receber/cadastro" element={<ReceiptsForm />} />
-          <Route path="/contas-receber/1" element={<ReceiptsForm />} />
+          <Route path="/contas-receber/:id" element={<ReceiptsForm />} />
           <Route path="/formas-pagamento" element={<PaymentsMethods />} />
           <Route path="/formas-pagamento/cadastro" element={<PaymentsMethodsForm />} />
-          <Route path="/formas-pagamento/1" element={<PaymentsMethodsForm />} />
+          <Route path="/formas-pagamento/:id" element={<PaymentsMethodsForm />} />
           {/* DEVELOPMENT */}
           <Route path="/relatorios-contas-pagar" element={<ReportsPayments />} />
           <Route path="/relatorios-contas-receber" element={<ReportsReceipts />} />
@@ -96,7 +98,7 @@ const App = () => {
 
           <Route path="/usuarios" element={<Users />} />
           <Route path="/usuarios/cadastro" element={<UsersForm />} />
-          <Route path="/usuarios/1" element={<UsersForm />} />
+          <Route path="/usuarios/:id" element={<UsersForm />} />
           <Route path="/perfil" element={<Profile />} />
           <Route path="/configuracoes" element={<System />} />
         </Routes>

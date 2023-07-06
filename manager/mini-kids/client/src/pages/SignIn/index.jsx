@@ -1,12 +1,52 @@
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { useFormik } from "formik";
+import * as yup from "yup";
+import { toast } from "react-toastify";
 
+import api from "../../libs/api";
+import { UserContext } from "../../contexts/UserContext";
 import Footer from "../../components/Navigation/Footer";
+
+const loginSchema = yup.object().shape({
+  username: yup.string().required("Usuário é obrigatório"),
+  password: yup.string().required("Senha é obrigatório"),
+  remember: yup.bool().optional(),
+});
 
 const SignIn = () => {
   const navigate = useNavigate();
+  const { user, setUser } = useContext(UserContext);
+
+  const loginInitialValues = {
+    username: "",
+    password: "",
+    remember: false,
+  }
+  const formik = useFormik({
+    enableReinitialize: true,
+    initialValues: loginInitialValues,
+    validationSchema: loginSchema,
+    onSubmit: (values) => handleSubmit(values)
+  })
+  const handleSubmit = async values => {
+    const formData = new FormData();
+    formData.append("username", values.username);
+    formData.append("password", values.password);
+
+    api.post("/auth/login", formData)
+      .then((res) => {
+        if (res.status === 500 || !res.data) return toast.error("Falha no login");
+        toast.success("Login realizado com sucesso");
+        setUser({ ...res.data, remember: values.remember });
+        navigate("/painel");
+      });
+  }
+
+  if (user) navigate("/painel");
 
   return (
-    <main className="mt-0 transition-all duration-200 ease-in-out">
+    <main className="mt-0 transition-all duration-200 ease-in-out dark:bg-slate-900 bg-gray-50 text-slate-500">
       <section>
         <div className="relative flex items-center min-h-screen p-0 overflow-hidden bg-center bg-cover">
           <div className="container z-1">
@@ -18,19 +58,22 @@ const SignIn = () => {
                     <p className="mb-0">Digite seu email e senha para fazer login</p>
                   </div>
                   <div className="flex-auto p-6">
-                    <form role="form">
+                    <form onSubmit={formik.handleSubmit}>
                       <div className="mb-4">
-                        <input type="email" placeholder="Email" className="focus:shadow-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding p-3 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none" />
+                        <input type="text" id="username" name="username" placeholder="Usuário" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.username} className="dark:bg-slate-850 focus:shadow-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding p-3 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none" />
+                        <span className="text-red-500 text-sm">{formik.touched.username && formik.errors.username}</span>
                       </div>
                       <div className="mb-4">
-                        <input type="password" placeholder="Senha" className="focus:shadow-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding p-3 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none" />
+                        <input type="password" id="password" name="password" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} placeholder="Senha" className="dark:bg-slate-850 focus:shadow-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding p-3 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none" />
+                        <span className="text-red-500 text-sm">{formik.touched.password && formik.errors.password}</span>
                       </div>
                       <div className="flex items-center pl-12 mb-0.5 text-left min-h-6">
-                        <input id="rememberMe" className="mt-0.5 rounded-10 duration-250 ease-in-out after:rounded-circle after:shadow-2xl after:duration-250 checked:after:translate-x-5.3 h-5 relative float-left -ml-12 w-10 cursor-pointer appearance-none border border-solid border-gray-200 bg-zinc-700/10 bg-none bg-contain bg-left bg-no-repeat align-top transition-all after:absolute after:top-px after:h-4 after:w-4 after:translate-x-px after:bg-white after:content-[''] checked:border-blue-500/95 checked:bg-blue-500/95 checked:bg-none checked:bg-right" type="checkbox" />
-                        <label className="ml-2 font-normal cursor-pointer select-none text-sm text-slate-700" htmlFor="rememberMe">Lembrar me</label>
+                        <input id="remember" name="remember" onChange={formik.handleChange} value={formik.values.remember} className="mt-0.5 rounded-10 duration-250 ease-in-out after:rounded-circle after:shadow-2xl after:duration-250 checked:after:translate-x-5.3 h-5 relative float-left -ml-12 w-10 cursor-pointer appearance-none border border-solid border-gray-200 bg-zinc-700/10 bg-none bg-contain bg-left bg-no-repeat align-top transition-all after:absolute after:top-px after:h-4 after:w-4 after:translate-x-px after:bg-white after:content-[''] checked:border-blue-500/95 checked:bg-blue-500/95 checked:bg-none checked:bg-right" type="checkbox" />
+                        <label className="ml-2 font-normal cursor-pointer select-none text-sm text-slate-700" htmlFor="remember">Lembrar me</label>
                       </div>
                       <div className="text-center">
-                        <button onClick={() => navigate("/painel")} type="button" className="inline-block w-full px-16 py-3.5 mt-6 mb-0 font-bold leading-normal text-center text-white align-middle transition-all bg-blue-500 border-0 rounded-lg cursor-pointer hover:-translate-y-px active:opacity-85 hover:shadow-xs text-sm ease-in tracking-tight-rem shadow-md bg-150 bg-x-25">Login</button>
+                        {/* <button onClick={() => navigate("/painel")} type="button" className="inline-block w-full px-16 py-3.5 mt-6 mb-0 font-bold leading-normal text-center text-white align-middle transition-all bg-blue-500 border-0 rounded-lg cursor-pointer hover:-translate-y-px active:opacity-85 hover:shadow-xs text-sm ease-in tracking-tight-rem shadow-md bg-150 bg-x-25">Login</button> */}
+                        <button type="submit" className="inline-block w-full px-16 py-3.5 mt-6 mb-0 font-bold leading-normal text-center text-white align-middle transition-all bg-blue-500 border-0 rounded-lg cursor-pointer hover:-translate-y-px active:opacity-85 hover:shadow-xs text-sm ease-in tracking-tight-rem shadow-md bg-150 bg-x-25">Login</button>
                       </div>
                     </form>
                   </div>

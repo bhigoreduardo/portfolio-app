@@ -1,12 +1,14 @@
-import { faker } from '@faker-js/faker';
+/* eslint-disable react/prop-types */
+// import { faker } from '@faker-js/faker';
 
+import { currencyPrice, optionsLocaleDate } from '../../utils/calculate';
 import LineChart from '../../components/Charts/Line';
 import CardTitle from './CardTitle';
 import SaleDetailCard from '../../components/Cards/SaleDetail';
 
-const labels = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho'];
+const labels = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 
-const SecondRow = () => {
+const SecondRow = ({ sales, lastSales }) => {
   return (
     <div className="flex flex-row flex-wrap lg:flex-nowrap gap-4 mb-4">
       <div className="w-full min-h-full max-w-full px-3 py-4 lg:w-7/12 flex-col border-black/12.5 dark:bg-slate-850 dark:shadow-dark-xl shadow-xl relative border-solid bg-clip-border rounded-2xl bg-white">
@@ -19,21 +21,24 @@ const SecondRow = () => {
           </p>
         </div>
 
-        <LineChart labels={labels} label="Vendas" data={labels.map(() => faker.datatype.number({ min: -1000, max: 1000 }))} />
+        {/* <LineChart labels={labels} label="Vendas" data={labels.map(() => faker.datatype.number({ min: -1000, max: 1000 }))} /> */}
+        <LineChart labels={labels} label="Vendas" data={sales} />
       </div>
 
       <div className="w-full min-h-full max-w-full px-3 py-4 lg:w-5/12 flex-col border-black/12.5 dark:bg-slate-850 dark:shadow-dark-xl shadow-xl relative border-solid bg-clip-border rounded-2xl bg-white">
-        <CardTitle title="Últimas vendas" />
+        <CardTitle title="Últimas vendas" href="/vendas" />
 
         <ul className="flex flex-col gap-6 rounded-lg overflow-y-auto mt-4 max-h-[360px]">
-          <SaleDetailCard createdAt="1 Março 2020" orderId="#MS-415646" amount="R$180" />
-          <SaleDetailCard createdAt="10 Fevereiro 2021" orderId="#RV-126749" amount="R$250" />
-          <SaleDetailCard createdAt="05 Abril 2020" orderId="#FB-212562" amount="R$560" />
-          <SaleDetailCard createdAt="25 Junho 2019" orderId="#QW-103578" amount="R$120" />
-          <SaleDetailCard createdAt="1 Março 2019" orderId="#AR-803481" amount="R$300" />
-          <SaleDetailCard createdAt="1 Março 2019" orderId="#AR-803481" amount="R$300" />
-          <SaleDetailCard createdAt="1 Março 2019" orderId="#AR-803481" amount="R$300" />
-          <SaleDetailCard createdAt="1 Março 2019" orderId="#AR-803481" amount="R$300" />
+          {
+            !lastSales?.length > 0
+              ? (
+                <h6 className="dark:text-white text-center mb-6">Nenhuma venda encontrada</h6>
+              ) : (
+                lastSales.map((item, i) => (
+                  <SaleDetailCard key={i} createdAt={new Date(item.createdAt).toLocaleDateString("pt-BR", optionsLocaleDate)} orderId={`Venda: ${item.id}`} amount={currencyPrice.format(item.amount)} href={`/vendas/imprimir/${item.id}`} />
+                ))
+              )
+          }
         </ul>      
       </div>
     </div>
