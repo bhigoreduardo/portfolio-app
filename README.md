@@ -132,6 +132,10 @@ Abaixo alguns comandos básicos e essenciais de Git.
     <td>Exibir branches do repositório</td>
 </tr>
 <tr>
+    <td>git clone -b branch-name --single-branch repository-name</td>
+    <td>Clone de branch específica</td>
+</tr>
+<tr>
     <td><code>git restore file.ext</code></td>
     <td>Desfazer o commit do arquivo específico</td>
 </tr>
