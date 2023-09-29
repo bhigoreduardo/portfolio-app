@@ -89,7 +89,7 @@ const Print = () => {
         <button type="button" onClick={print} className="inline-block px-8 py-2 mb-4 font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-blue-500 border-0 rounded-lg shadow-md cursor-pointer text-xs tracking-tight-rem hover:shadow-xs hover:-translate-y-px active:opacity-85">Imprimir</button>
       </div>
       <div className="element-to-print">
-        <table className="p-3 mx-auto bg-[#ffffe0] w-full max-w-[400px] text-sm font-light leading-tight">
+        <table className="p-3 mx-auto w-full max-w-[400px] text-sm font-light leading-tight">
           <thead className="my-4">
             <tr><th className="text-base font-light" colSpan="3">{system.name}</th></tr>
             <tr><th colSpan="3" className="font-light">{system.cnpj}</th></tr>
